@@ -1,4 +1,4 @@
-"""Merge D1 session 1 (results_d1) and session 2 (results_d1_session2) and compute the comparisons
+"""Merge D1 session 1 (results/d1_session1) and session 2 (results/d1_session2) and compute the comparisons
 that need both: every arm against the retrained no-augmentation control (noaug), the mask-type
 contrasts, a same-config replicate (realjpeg DFDC ran in both sessions) and gap closure from noaug.
 Uses the notebook's own codec7 bootstrap (torch stubbed; only numpy/pandas code paths run)."""

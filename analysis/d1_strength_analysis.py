@@ -1,4 +1,4 @@
-"""Pre-registered 2x2 analysis of the strength-matched run (RESEARCH_PLAN_MASTER section 6, notebook Cell 0).
+"""Pre-registered 2x2 analysis of the strength-matched run (decision rules as fixed in notebooks/07_strength_matched_masks.ipynb, Cell 0).
 
 Ordering {JPEG table, uniform} x strength {qmask's, randmask's}: qmask, randmask (session 1), qmask_highE,
 randmask_lowE (session 3). Primary endpoint H.264 CRF 40, secondary JPEG q20, mean over the 3 folds.

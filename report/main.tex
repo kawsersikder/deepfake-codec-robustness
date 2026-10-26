@@ -1,7 +1,6 @@
 
 \documentclass[journal,onecolumn]{IEEEtran}
 
-% ---- packages --------------------------------------------------------------
 \usepackage{cite}
 \usepackage{amsmath,amssymb,amsfonts}
 \usepackage{graphicx}
@@ -16,7 +15,6 @@
 \usepackage{url}
 \usepackage[hidelinks]{hyperref}   % keep hyperref last
 
-% ---- paths and conveniences ------------------------------------------------
 \graphicspath{{figures/}}
 \renewcommand{\arraystretch}{1.0}
 \newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
@@ -26,21 +24,15 @@
 \newcommand{\dfdc}{DFDC}
 \newcommand{\best}[1]{\textbf{#1}}
 
-% Component-ablation grid markers (Table~\ref{tab:components}).
-% \nm marks a cell that was never measured, which is not the same as a zero.
 \newcommand{\yes}{\ensuremath{\checkmark}}
 \newcommand{\no}{\ensuremath{\times}}
 \newcommand{\nm}{\textit{\footnotesize n/m}}
 
-% Tighter floats, so an 8-page budget is not eaten by white space.
 \setlength{\textfloatsep}{6pt plus 2pt minus 2pt}
 \setlength{\intextsep}{6pt plus 2pt minus 2pt}
 \setlength{\abovecaptionskip}{4pt}
 \setlength{\belowcaptionskip}{2pt}
 
-% This document is table-dense for its length. LaTeX's default float fractions
-% reserve so much of each page for text that tables get pushed down and leave
-% gaps. Relaxing them lets a page carry more float without a forced break.
 \renewcommand{\topfraction}{0.92}
 \renewcommand{\bottomfraction}{0.85}
 \renewcommand{\textfraction}{0.07}
@@ -51,7 +43,6 @@
 
 \begin{document}
 
-% ============================================================================
 \title{Cross-Dataset Generalization and Robustness of Deepfake Detection:\\
 A Leave-One-Out Study with Explainability and Statistical Validation}
 
@@ -61,15 +52,11 @@ A Leave-One-Out Study with Explainability and Statistical Validation}
   \thanks{This report is submitted in partial fulfillment of the requirements of
   CSE~499A, Senior Design Project~I, Department of Electrical and Computer
   Engineering, North South University, Dhaka, Bangladesh.}%
-  % Faculty Advisor \thanks removed: Dr. Riasat Khan is credited at length in the
-  % Acknowledgment, and naming him here as well, was pure duplication.
   \thanks{Manuscript submitted September~9, 2026.}%
 }
 
 \maketitle
 
-% ============================================================================
-% >>>>> inlined from sections/00_abstract.tex >>>>>
 \begin{abstract}
 Currently, artificially generated content and face manipulation have become
 very common, and they are very good at producing human-like content that's hard
@@ -108,19 +95,12 @@ more related to a broader training set and stable manipulation cues than to
 simply adding more types of corruption.
 \end{abstract}
 
-% Keywords in alphabetical order, as required by slide 6.
 \begin{IEEEkeywords}
 Convolutional neural networks, cross-dataset generalisation, data augmentation,
 deepfake detection, explainable artificial intelligence, image forensics, model
 robustness, statistical validation.
 \end{IEEEkeywords}
-% <<<<< end sections/00_abstract.tex <<<<<
 
-% >>>>> inlined from sections/00b_dedication.tex >>>>>
-
-% <<<<< end sections/00b_dedication.tex <<<<<
-
-% >>>>> inlined from sections/01_introduction.tex >>>>>
 \section{Introduction}
 \label{sec:intro}
 
@@ -133,9 +113,7 @@ The literature mainly follows three directions. R{\"o}ssler \textit{et al.} intr
 These studies leave five gaps that can hide failure. Cross-dataset transfer is usually reported pairwise, leaving the more difficult leave-one-out setting less explored. Robustness and generalization are also often studied separately, even though deployment may involve both at the same time. Corruption tests commonly use the same corruption families seen during training, making it difficult to separate memorization from actual robustness. Point estimates without confidence intervals can also make small differences appear meaningful. Finally, frame-level splits can allow the same subject or near-duplicate frames to cross the evaluation boundary.
 
 We address these issues using a controlled protocol based on EfficientNet-B0~\cite{tan2019efficientnet}. For the main comparison, the backbone, training schedule, sampler, and seed are held fixed; the architectural experiments in Section~\ref{ssec:extensions} are treated as separate extensions rather than part of this comparison. The main study measures in-domain performance, all six ordered cross-corpus pairs, and three-way leave-one-out generalization. Grad-CAM~\cite{selvaraju2017gradcam} is reduced to three scalar measures, namely center of mass, entropy, and border energy, so that changes in attention can be tested numerically. Robustness is evaluated under recompression, blur, rescaling, and noise, using paired bootstrap intervals to compare performance on corruption types withheld from training. Section~\ref{sec:proposed} describes the system and evaluation protocol. Section~\ref{sec:results} presents cross-dataset transfer, explainability and robustness, statistical validation, data scaling, the ablation study, comparison with published work, and architectural and objective extensions. The final extension also tests latent-diffusion manipulation. None of the detectors survives this probe, and four of nine checkpoints score below chance, meaning they rank the forged images as more authentic than their real counterparts. Section~\ref{sec:conclusion} concludes the report and outlines the work for CSE~499B.
-% <<<<< end sections/01_introduction.tex <<<<<
 
-% >>>>> inlined from sections/02_proposed_system.tex >>>>>
 \section{Proposed System}
 \label{sec:proposed}
 
@@ -148,11 +126,6 @@ evaluation under clean and degraded conditions.
 \begin{figure}[!ht]
 \centering
 \resizebox{0.72\textwidth}{!}{%
-% ---------------------------------------------------------------------------
-% Complete system flowchart, drawn in TikZ so it needs no external image file
-% and scales cleanly. Four stages, left-to-right within each row, with routed
-% connectors between rows.
-% ---------------------------------------------------------------------------
 \begin{tikzpicture}[
   font=\scriptsize,
   node distance=6mm,
@@ -166,7 +139,6 @@ evaluation under clean and degraded conditions.
   lbl/.style   = {font=\scriptsize\bfseries, anchor=west, text=black!65}
 ]
 
-% ---------- Row 1 : data ---------------------------------------------------
 \node[data] (a1) {Three video corpora\\ \celebdf{} $\cdot$ \ffpp{} $\cdot$ \dfdc};
 \node[data, right=of a1] (a2) {Pre-extracted face crops\\ resize $224{\times}224$,\\ ImageNet normalisation};
 \node[data, right=of a2] (a3) {Per-corpus path parsing\\ frame $\rightarrow$ video ID};
@@ -176,7 +148,6 @@ evaluation under clean and degraded conditions.
 \draw[arr] (a2) -- (a3);
 \draw[arr] (a3) -- (a4);
 
-% ---------- Row 2 : leakage-safe splitting ---------------------------------
 \node[split, below=13mm of a1] (b1) {\texttt{GroupShuffleSplit}\\ 70\,/\,15\,/\,15 on group};
 \node[split, right=of b1] (b2) {Zero-overlap assertion\\ on \emph{group} and \emph{video}};
 \node[split, right=of b2] (b3) {Domain-balanced cap\\ 30\,000 images / source};
@@ -187,7 +158,6 @@ evaluation under clean and degraded conditions.
 \draw[arr] (b3) -- (b4);
 \draw[arr] (a4.south) -- ++(0,-4mm) -| (b1.north);
 
-% ---------- Row 3 : model and training -------------------------------------
 \node[train, below=13mm of b1] (c1) {EfficientNet-B0\\ ImageNet-initialised\\ 5.3\,M parameters};
 \node[train, right=of c1] (c2) {AdamW $\cdot$ warm-up\\ + cosine $\cdot$ AMP\\ + EMA $\cdot$ grad-clip};
 \node[train, right=of c2] (c3) {Frame-level probability\\ $\sigma(z)$ per crop\\ + horizontal-flip TTA};
@@ -198,7 +168,6 @@ evaluation under clean and degraded conditions.
 \draw[arr] (c3) -- (c4);
 \draw[arr] (b4.south) -- ++(0,-4mm) -| (c1.north);
 
-% ---------- Row 4 : evaluation ---------------------------------------------
 \node[eval, below=13mm of c1] (d1) {In-domain test\\ + $3{\times}3$ transfer matrix};
 \node[eval, right=of d1] (d2) {Leave-one-out\\ train on 2, test unseen 3rd};
 \node[eval, right=of d2] (d3) {Grad-CAM explainability\\ attention displacement};
@@ -209,18 +178,13 @@ evaluation under clean and degraded conditions.
 \draw[arr] (d3) -- (d4);
 \draw[arr] (c4.south) -- ++(0,-4mm) -| (d1.north);
 
-% ---------- Stage labels ---------------------------------------------------
 \node[lbl, left=1mm of a1.west, rotate=90, anchor=south] {DATA};
 \node[lbl, left=1mm of b1.west, rotate=90, anchor=south] {SPLIT};
 \node[lbl, left=1mm of c1.west, rotate=90, anchor=south] {TRAIN};
 \node[lbl, left=1mm of d1.west, rotate=90, anchor=south] {EVAL};
 
-% ---------- stage icons (faculty request: add images/icons) ----------------
-% Drawn in TikZ, so the report still needs no external image assets. Placed in
-% the left margin beside each stage label; no existing node is moved.
 \tikzset{ic/.style={draw=black!70, line width=0.45pt}}
 
-% DATA: stacked corpora
 \begin{scope}[shift={($(a1.west)+(-17mm,0mm)$)}]
   \foreach \dy in {3.2mm,0mm,-3.2mm}{
     \begin{scope}[shift={(0mm,\dy)}]
@@ -231,7 +195,6 @@ evaluation under clean and degraded conditions.
     \end{scope}}
 \end{scope}
 
-% SPLIT: one pool divided into three disjoint parts
 \begin{scope}[shift={($(b1.west)+(-17mm,0mm)$)}]
   \draw[ic, fill=teal!10] (-5.6mm,-1.7mm) rectangle (-2.2mm,1.7mm);
   \draw[ic, -{Latex[length=1.6mm,width=1.2mm]}] (-1.9mm,0mm) -- (0.7mm,0mm);
@@ -240,7 +203,6 @@ evaluation under clean and degraded conditions.
   \draw[ic, fill=teal!6] (1mm,-3.8mm) rectangle (5.6mm,-2.0mm);
 \end{scope}
 
-% TRAIN: a small network
 \begin{scope}[shift={($(c1.west)+(-17mm,0mm)$)}]
   \foreach \a in {3mm,0mm,-3mm}
     \foreach \b in {3.8mm,1.3mm,-1.3mm,-3.8mm}
@@ -256,7 +218,6 @@ evaluation under clean and degraded conditions.
     \draw[ic, fill=green!25] (4.2mm,\a) circle[radius=0.75mm];
 \end{scope}
 
-% EVAL: score bars under a lens
 \begin{scope}[shift={($(d1.west)+(-17mm,0mm)$)}]
   \draw[ic] (-5mm,-4mm) -- (3.4mm,-4mm);
   \draw[ic, fill=orange!30] (-4.2mm,-4mm) rectangle (-2.4mm,-0.6mm);
@@ -449,20 +410,12 @@ The system is implemented in PyTorch~\cite{paszke2019pytorch} with
 \texttt{timm}~\cite{wightman2019timm} supplying the pretrained
 backbone, and runs in a single Kaggle notebook on one NVIDIA Tesla~T4. All
 randomness is seeded at 42 across the Python, NumPy, and PyTorch generators.
-% <<<<< end sections/02_proposed_system.tex <<<<<
 
-% >>>>> inlined from sections/03_results.tex >>>>>
 \section{Results and Discussion}
 \label{sec:results}
 
 \subsection{Cross-Dataset Transfer and Threshold Metrics}
 \label{ssec:transfer}
-
-% >>>>> inlined from tables/performance.tex >>>>>
-% Source: phase5_results/phase5_matrix.csv, phase5a_results.json -> matrix,
-%         leave_one_out, detail; phase5_metrics_fixed.json (EER-threshold).
-% Merges three tables of the full edition: the 3x3 matrix, the leave-one-out
-% study, and the corrected threshold metrics.
 
 \begin{table}[!ht]
 \centering
@@ -599,8 +552,6 @@ of 0.864 and 0.801 and carry almost no information.
 \end{minipage}
 
 \end{table}
-% <<<<< end tables/performance.tex <<<<<
-
 
 Table~\ref{tab:performance} carries the central measurement of this report. Two
 readings of it point in opposite directions, and both are true.
@@ -677,12 +628,6 @@ withdraws it from another.
 \subsection{Statistical Validation and Augmentation Breadth}
 \label{ssec:breadth}
 
-% >>>>> inlined from tables/stats.tex >>>>>
-% Source: (a) phase7_results/phase7_ci.csv, phase7_results.json
-%         (b) phase10_results/phase10_ci.csv, rows with pair == "broad-narrow"
-% Both use a 2,000-replicate video-level paired bootstrap under one protocol, so
-% the two blocks are directly comparable. Condenses two tables of the full
-% edition into the seen-versus-unseen argument they share.
 \begin{table}[!ht]
 \centering
 \caption{Statistical validation of augmentation, under a 2\,000-replicate paired
@@ -728,8 +673,6 @@ two are genuinely paired rather than merely concurrent. Every \dfdc{} interval i
 uninformative at $n = 58$ and carries no independent claim.
 \end{minipage}
 \end{table}
-% <<<<< end tables/stats.tex <<<<<
-
 
 The point estimates above rest on 200 test videos, and 58 for \dfdc{}, which is
 not enough to separate a real effect from resampling noise.
@@ -801,25 +744,6 @@ thousand frames of ten people does not.
 
 \subsection{Ablation Study}
 
-% >>>>> inlined from tables/components.tex >>>>>
-% ===========================================================================
-%  COMPONENT-ABLATION GRID  (the tick/cross format requested by the faculty)
-%
-%  Every AUC in this table is measured. Sources, row by row:
-%    R1  phase5_results/phase5_metrics_fixed.json  (in-domain)
-%    R2  phase5_results/phase5a_results.json -> detail   (F1-optimal threshold)
-%    R3  phase5_results/phase5_metrics_fixed.json  (EER threshold)
-%    R4  phase6_results/phase6_results.json -> clean_loo -> heavy-aug
-%    R5  phase10_results/phase10_auc.csv, arm=broad, condition=clean
-%    R6  phase8_results/phase8_cropquality.csv -> filtered_auc
-%    R7  phase8_results/phase8_ensemble.csv, ensemble=ens_all, auc_rank
-%
-%  !! Bal. acc. and F1 exist only for R1-R3, because per-video predictions
-%     (preds_*.csv) were saved only for the Phase 5 runs. R4-R7 recorded AUC
-%     alone. Those cells are \nm (not measured), NOT zero and NOT guessed.
-%     To fill them, re-run inference with the saved checkpoints and dump
-%     per-video probabilities; no retraining is needed.
-% ===========================================================================
 \begin{table}[!t]
 \centering
 \caption{Component ablation. Each row adds one technique to the row above, on a
@@ -880,8 +804,6 @@ per-video predictions were saved only for the Phase~5 configurations, so rows
 pass with the saved checkpoints and no retraining.
 \end{minipage}
 \end{table}
-% <<<<< end tables/components.tex <<<<<
-
 
 The component form ablation is presented in Table~\ref{tab:components}. The backbone is EfficientNet-B0 throughout, and each row adds one technique to the row above (area-under-the-curve columns are measured on the held-out corpus). This provides the entire project at once when reading down the \celebdf{} column: 0.9942 for the in-domain reference; dropping a corpus out leaves 0.7650; and there is no clean data recovery from either augmentation ladder, with the broad ladder costing a further 0.059. Crop-quality filtering returns $+0.017$, and rank-averaged ensembling yields $+0.066$, which is the largest single gain in the table.
 
@@ -889,18 +811,6 @@ Rows~2 and 3 should be compared against each other rather than read in sequence.
 
 \subsection{Comparison with Published Work}
 
-% >>>>> inlined from tables/comparison.tex >>>>>
-% ===========================================================================
-%  PERFORMANCE COMPARISON WITH EXISTING WORK
-%
-%  !!! VERIFY BEFORE SUBMISSION !!!
-%  Every value in the "published" rows is quoted from the cited paper under
-%  THAT paper's own protocol. Open each reference and confirm the figure and
-%  the setting before you submit. Protocols differ (frame- vs video-level
-%  scoring, FF++ compression setting, crop method, which manipulations are
-%  included), so these are "in the same range as", not exact head-to-head.
-%  The "This work" row is fully verified against phase5_results/.
-% ===========================================================================
 \begin{table}[!ht]
 \centering
 \caption{Performance comparison of the proposed system against published work.
@@ -909,8 +819,6 @@ evaluation protocols; the lower block is measured in this study. Dashes indicate
 a setting the cited work does not report.}
 \label{tab:comparison}
 \footnotesize
-% At the default \tabcolsep (6pt) the long author+backbone cells push this table
-% 24.7pt past \textwidth. 3.5pt reclaims 30pt across the six columns.
 \setlength{\tabcolsep}{3.5pt}
 \begin{tabular}{llcccc}
 \toprule
@@ -941,48 +849,19 @@ four-method benchmark numbers and is reported for completeness rather than as a
 competitive claim.
 \end{minipage}
 \end{table}
-% <<<<< end tables/comparison.tex <<<<<
-
 
 We place the proposed system against relevant published work in Table~\ref{tab:comparison} and make three observations. First, \textbf{our in-domain results match published Xception and EfficientNet-B4 numbers~\cite{chollet2017xception,zhao2021multiattentional} on a backbone about one fourth their size}, so in-domain detection is not a capacity problem.
 
 Second, \textbf{our cross-corpus baseline is firmly placed within the standard-CNN band}. The 0.7302 FaceForensics\texttt{++}~$\rightarrow$~\celebdf{} figure agrees with the 0.653 of XceptionNet reported by Li \textit{et al.}~\cite{li2020celebdf} and the 0.737 under the unified protocol of Yan \textit{et al.}~\cite{yan2023deepfakebench}. The specialized approaches are still far ahead, with temporal cues~\cite{haliassos2021lips} at 0.824 and self-blended training~\cite{shiohara2022sbi} at 0.932. That gap defines the frontier this project has not attempted to cross, and more powerful augmentations on a generic backbone do not approach this either, because their improvement is architectural in nature rather than a matter of tuning.
 
 Third, \textbf{three of our evaluations do not have a match in the table since they are rarely reported at all}: the three-way leave-one-out protocol, the robustness of transfer measured on identical images, and the seen-versus-unseen corruption split with bootstrap intervals. One caveat applies throughout, though. The cross-corpus numbers vary significantly by protocol, so these figures are ``in the same range as'' rather than direct comparisons, which is the problem that motivated DeepfakeBench~\cite{yan2023deepfakebench}.
-% <<<<< end sections/03_results.tex <<<<<
-
-% >>>>> inlined from sections/03g_extensions.tex >>>>>
-% ===========================================================================
-%  SECTION III-H: architectural and objective extensions
-%
-%  All values are measured; no \TBD placeholders remain.
-% ===========================================================================
 
 \subsection{Architectural and Objective Extensions}
 \label{ssec:extensions}
 
-% >>>>> inlined from tables/extensions.tex >>>>>
-% ===========================================================================
-%  TABLE V — ARCHITECTURAL AND OBJECTIVE EXTENSIONS (Phases 11 and 12)
-%
-%  No \TBD remains: every cell is measured.
-%
-%  Sources:
-%    row  1      tables/performance.tex, block (b)            [published]
-%    row  2      phase11_auc.csv, arm=baseline                [MEASURED]
-%    row  3      phase11_auc.csv, arm=dualstream              [MEASURED]
-%    row  4      phase11_auc.csv, arm=dann                    [MEASURED]
-%    row  5      phase11_auc.csv, arm=cam                     [MEASURED]
-%    block (b)   phase12_results/phase12_ldm_probe.csv        [MEASURED]
-% ===========================================================================
-
-\providecommand{\TBD}{\textcolor{red}{\textbf{??}}}
-
-% ---- Grad-CAM rows: fill these in, one place each --------------------------
 \newcommand{\caCeleb}{0.7853}       \newcommand{\caFF}{0.8570}
 \newcommand{\caDFDC}{0.7362}        \newcommand{\caMean}{0.7928}
 
-% ---- measured -------------------------------------------------------------
 \newcommand{\dsCeleb}{\best{0.8143}} \newcommand{\dsFF}{\best{0.8788}}
 \newcommand{\dsDFDC}{0.7491}         \newcommand{\dsMean}{\best{0.8141}}
 \newcommand{\daCeleb}{0.7394}        \newcommand{\daFF}{0.8665}
@@ -993,7 +872,6 @@ Third, \textbf{three of our evaluations do not have a match in the table since t
 \newcommand{\ldmLooRange}{0.428--0.586}    \newcommand{\ldmLooMed}{0.497}
 \newcommand{\ldmHeavyRange}{0.423--0.560}  \newcommand{\ldmHeavyMed}{0.480}
 \newcommand{\ldmAllRange}{0.329--0.586}    \newcommand{\ldmMedian}{0.480}
-% ---------------------------------------------------------------------------
 
 \begin{table}[!ht]
 \centering
@@ -1058,8 +936,6 @@ Two of the nine sit above the upper bound around chance and four sit below the
 lower bound, which is a ranking inversion rather than a loss of signal.
 \end{minipage}
 \end{table}
-% <<<<< end tables/extensions.tex <<<<<
-
 
 Sections~\ref{ssec:compaware} and~\ref{ssec:breadth} closed one route. Widening
 the corruption curriculum redistributes robustness between neighbouring
@@ -1213,9 +1089,7 @@ diffusion probe is an evaluation set, not a training set, which measures
 exposure but does not indicate what training on such material would achieve. The
 comparisons for rows 3--5 are made against row~2 and not
 Table~\ref{tab:performance}, since the frame budget is different.
-% <<<<< end sections/03g_extensions.tex <<<<<
 
-% >>>>> inlined from sections/04_conclusion.tex >>>>>
 \section{Conclusions}
 \label{sec:conclusion}
 
@@ -1283,12 +1157,7 @@ signal-destroying marginal alignment we measured. That second direction is no lo
 a preference between open options. Widening the corruption curriculum buys
 transfer only to neighbouring mechanisms, and of the four alternatives we tried,
 the frequency stream is the one that moved the number.
-% <<<<< end sections/04_conclusion.tex <<<<<
 
-
-% Acknowledgement is \section*, so body numbering stays
-% IV Conclusions, V Individual Contribution. Order is deliberate.
-% >>>>> inlined from sections/06_acknowledgement.tex >>>>>
 \section*{Acknowledgement}
 
 We owe our largest debt to our faculty advisor, Dr.~Riasat Khan, Department of
@@ -1314,9 +1183,7 @@ We also thank the research groups behind the FaceForensics\texttt{++},
 \celebdf{} and Deepfake Detection Challenge corpora, who made their data
 publicly available for academic use. This study is only possible because they
 did. Any errors that remain in this report are our own.
-% <<<<< end sections/06_acknowledgement.tex <<<<<
 
-% >>>>> inlined from sections/05_contributions.tex >>>>>
 \section{Individual Contribution}
 \label{sec:contrib}
 
@@ -1350,7 +1217,6 @@ page.}} \\[2pt]
 \bottomrule
 \endlastfoot
 
-% ---- Kawser Sikder, 60% ---------------------------------------------------
 Kawser Sikder &
 \emph{Model development and training.} Built the training stack around the
 compact EfficientNet-B0 backbone used throughout: the transfer-learning recipe,
@@ -1406,14 +1272,12 @@ identifies video diversity as the binding constraint. Reviewed
 &
 \emph{\LaTeX{} formatting and manuscript production.} Set up the IEEEtran
 document, wrote every table and the TikZ flowchart, and managed figure placement,
-cross-referencing and the bibliography. Maintained the automated style checks on
-the prose and carried out the final consolidation of the manuscript into the
+cross-referencing and the bibliography. Proofread the prose and carried out the final consolidation of the manuscript into the
 submitted report. & 6\% \\
-\cmidrule(l){3-4}
+\cmidrule(l){2-3}
 & \textbf{Subtotal, Kawser Sikder} & \textbf{60\%} \\
 \midrule
 
-% ---- Tasneem Abdullah Aurnobb, 40% ----------------------------------------
 Tasneem Abdullah Aurnobb &
 \emph{Corpus acquisition and data collection.} Obtained and staged all three
 public corpora, reconciled their differing directory conventions and licence
@@ -1466,29 +1330,13 @@ bibliography. Reviewed \cite{haliassos2021lips}. & 4\% \\
 format, recorded seeds, checkpoints and per-run configuration, and tabulated the
 raw measurements that the results sections draw on, so that every figure quoted
 in this report can be traced back to a stored run. & 4\% \\
-\cmidrule(l){3-4}
+\cmidrule(l){2-3}
 & \textbf{Subtotal, Tasneem Abdullah Aurnobb} & \textbf{40\%} \\
 \midrule
 \multicolumn{2}{r}{\textbf{Total}} & \textbf{100\%} \\
 \end{longtable}
 }
-% <<<<< end sections/05_contributions.tex <<<<<
 
-
-% ============================================================================
-% \footnotesize on the bibliography: standard practice for a page-limited
-% submission, and it keeps the reference list on the last text page.
-% Do NOT try to \setlength{\IEEEbibitemsep} here: that length only exists
-% inside the thebibliography environment, so setting it early prints its
-% value as literal text on the page.
-% ===========================================================================
-%  BIBLIOGRAPHY, inlined so the report is a single .tex file.  refs.bib is no
-%  longer read: entries are transcribed from it in IEEEtran format, ordered by
-%  first citation, exactly as BibTeX produced them.
-%  IF YOU ADD A \cite{}, ADD A MATCHING \bibitem BELOW BY HAND. There is no
-%  BibTeX pass any more, so an unmatched \cite prints a bold [?].
-%  Build is now a plain two-pass pdflatex; no bibtex step.
-% ===========================================================================
 {\footnotesize
 \begin{thebibliography}{99}
 \itemsep 0pt

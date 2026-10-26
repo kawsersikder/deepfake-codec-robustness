@@ -1,4 +1,4 @@
-"""Phase 14b: codec-aware block-DCT masking, the full item 7 experiment.
+"""Phase 14b: codec-aware block-DCT masking, the full three-fold experiment.
 
 Every arm continues the Phase 11 checkpoint of one leave-one-dataset-out fold on
 the Phase 13 frames with the same schedule, then scores the held-out corpus clean,

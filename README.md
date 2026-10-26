@@ -9,7 +9,7 @@ Deepfake detectors that look excellent on their own benchmark often fail on foot
 1. **Generalisation:** we adapt large vision foundation models with LoRA and evaluate them leave-one-dataset-out (train on two datasets, test on the unseen third).
 2. **Compression robustness:** we run controlled experiments on codec-aware training, asking whether a detector benefits from a frequency-domain prior shaped like a real codec (the JPEG quantisation table) or from generic frequency dropout.
 
-Everything is evaluated with paired, cluster-level bootstrap intervals, training-noise controls and decision rules fixed before the results were seen.
+Every comparison uses paired, cluster-level bootstrap intervals on identical videos. The codec-aware training experiments also widen the intervals for training noise, and the compression gate and the strength-matched study follow decision rules fixed before the results were seen.
 
 *Senior design project (CSE 499A/B), North South University, 2026. Advisor: Dr. Riasat Khan. A manuscript is in preparation.*
 
@@ -17,10 +17,10 @@ Everything is evaluated with paired, cluster-level bootstrap intervals, training
 
 ## Highlights
 
-- **Foundation models generalise much better than CNNs.** EVA-02-L/14 with LoRA on the attention projections reaches a mean held-out AUC of **0.889**. That beats our best CNN (an RGB + frequency dual-stream EfficientNet) on the same frames by **+0.072, +0.086 and +0.090** on Celeb-DF, FF++ and DFDC; all three intervals exclude zero.
+- **EVA-02 with LoRA generalises much better than our CNNs.** EVA-02-L/14 with LoRA on the attention projections reaches a mean held-out AUC of **0.889**. That beats our best CNN (an RGB + frequency dual-stream EfficientNet) on the same frames by **+0.072, +0.086 and +0.090** on Celeb-DF, FF++ and DFDC; all three intervals exclude zero. CLIP and DINOv2 with LoRA clearly beat both CNNs only on FF++.
 - **Small adaptation budget.** LoRA trains under 0.6% of the parameters. Keeping DINOv2-g's frozen weights in fp16 let the 1.1B-parameter model train on free 16 GB T4 GPUs.
 - **Compression still breaks the best model.** Re-encoding the test video with H.264 at CRF 40 costs EVA-02 + LoRA **0.071 to 0.197 AUC**, depending on the held-out dataset.
-- **The codec-shaped prior is not what helps.** At a matched drop rate, a *random* 8×8 DCT-coefficient mask improves AUC at CRF 40 by **+0.045** [0.028, 0.063]. The JPEG-table mask gives +0.023, and training on real H.264 video only +0.025, at a larger clean-video cost. The CNN experiments point the same way.
+- **The codec-shaped prior is not what helps.** At a matched drop rate, a *random* 8×8 DCT-coefficient mask improves AUC at CRF 40 by **+0.045** [0.028, 0.063]. The JPEG-table mask gives +0.023, and training on real H.264-compressed frames only +0.025, at a larger clean-video cost. The CNN experiments point the same way.
 - **Careful about our own claims.** A follow-up that matches mask *strength* (removed energy) is pre-registered and in progress. While running it we found and fixed a silent data-reproducibility issue (see [Reproducibility notes](#reproducibility-notes)).
 
 <p align="center"><img src="assets/foundation_models_lora.png" width="96%" alt="Held-out AUC of CLIP, DINOv2 and EVA-02 before and after LoRA"></p>
@@ -41,12 +41,12 @@ Video-level AUC on the held-out dataset, frozen linear probe → LoRA (q, v proj
 | **EVA-02-L/14** | 0.710 → **0.880** | 0.828 → **0.958** | 0.725 → **0.830** | **0.889** |
 
 All nine LoRA − probe differences have 95% intervals above zero. Follow-ups ([`results/phase13b_followups`](results/phase13b_followups)):
-- LoRA on q, k, v, o at rank 8 ties q, v at rank 16 (mean held-out 0.8895 vs 0.8892).
+- LoRA on q, k, v, o at rank 8 ties q, v at rank 16 on average (mean held-out 0.8895 vs 0.8892): +0.015 on Celeb-DF, −0.013 on DFDC (interval includes zero).
 - Three training seeds on the DFDC fold give 0.830, 0.818 and 0.828 (SD 0.006).
 
 ### 2. Compression hurts every model
 
-AUC drop from resize-only to H.264 CRF 40 on the same videos (Gate 0, [`results/gate0_compression_shift`](results/gate0_compression_shift)). A shortcut audit of file processing history found no exploitable cue (AUC ≤ 0.53).
+AUC change from resize-only to H.264 CRF 40 on the same videos (Gate 0, [`results/gate0_compression_shift`](results/gate0_compression_shift)). A shortcut audit found that file-format metadata (format, JPEG quality, crop size) does not separate real from fake (AUC ≤ 0.53). Compression-strength statistics such as sharpness reach AUC 0.54–0.71; we report that only as a caveat, because genuine blending blur also moves them.
 
 | Model | Celeb-DF | FaceForensics++ | DFDC |
 |---|---|---|---|
@@ -64,17 +64,17 @@ Every arm retrains the same recipe and differs only in its training-time augment
 |---|---|---|---|---|
 | Random 8×8 DCT mask (p = 1) | **+0.045** | **+0.018** | −0.004 | −0.014 |
 | Inverted-table DCT mask | +0.044 | +0.007 | −0.014 | −0.023 |
-| Real H.264 clips (CRF 23–40, p = 0.5) | +0.025 | −0.014 | −0.029 | −0.033 |
+| Real H.264, one-frame encode per crop (CRF 23–40, p = 0.5) | +0.025 | −0.014 | −0.029 | −0.033 |
 | JPEG-table DCT mask | +0.023 | +0.010 | −0.004 | −0.008 |
 | Real JPEG (q 20–95, p = 0.5) | +0.015 | +0.004 | −0.009 | −0.010 |
 
-- **Masking beats the JPEG table.** At the same mean drop rate (0.169), the JPEG-table mask is **0.022 worse** than the random mask at CRF 40 ([−0.038, −0.007]).
+- **Random masking beats the JPEG table.** At the same mean drop rate (0.169), the JPEG-table mask is **0.022 worse** than the random mask at CRF 40 ([−0.038, −0.007]).
 - **The gains are specific to heavy compression.** No arm helps at CRF 23, and every arm costs some clean-video accuracy.
-- **The CNNs agree** ([`results/phase14b_codec_mask_cnn`](results/phase14b_codec_mask_cnn)). The table mask beats plain fine-tuning by only +0.005 at JPEG q20, random masking at the same rate does as well or better, and real JPEG training gives the largest JPEG gain (+0.026).
+- **The CNNs agree** ([`results/phase14b_codec_mask_cnn`](results/phase14b_codec_mask_cnn)). The table mask beats plain fine-tuning by only +0.005 at JPEG q20, random masking at the same rate does as well or better, and real JPEG training gives a larger JPEG q20 gain (+0.026), which rises to +0.033 when the table mask is added on top.
 
 ### 4. Strength-matched follow-up (in progress)
 
-At the same drop probability, the JPEG-table mask removes 4–8× less image energy than the random mask, because it drops mostly high-frequency coefficients. So "worse ordering" and "weaker augmentation" are confounded.
+At the same drop probability, the JPEG-table mask removes about 4.7× less image energy than the random mask (and about 9× less than the inverted mask), because it drops mostly high-frequency coefficients ([`strength_calibration.csv`](results/d1_session3_strength/strength_calibration.csv)). So "worse ordering" and "weaker augmentation" are confounded.
 
 **What we did:**
 - Rescaled each ordering to the same expected removed energy, calibrated per fold on that fold's training crops and checked after the 224 px resize.
@@ -89,10 +89,10 @@ The reference arms are being retrained on the same pinned data ([`notebooks/08_p
 
 ### 5. CNN baseline study (CSE 499A)
 
-An EfficientNet-B0 detector with identity-grouped splits, within-dataset, cross-dataset and leave-one-out evaluation, Grad-CAM analysis and a corruption study.
-- **Within a dataset** it reaches AUC 0.994. **On an unseen dataset** it drops to 0.765–0.856, and its attention drifts off the face.
-- One round of aggressive recompression reduces the transferred signal to chance.
-- An ensemble of independent detectors gave the largest single improvement.
+An EfficientNet-B0 detector with video-grouped splits (identity-grouped for FF++), within-dataset, cross-dataset and leave-one-out evaluation, Grad-CAM analysis and a corruption study.
+- **Within a dataset** it reaches AUC 0.994 on Celeb-DF and 0.9998 on FF++ (0.850 on DFDC). **Trained on two datasets and tested on the third**, it drops to 0.765–0.856 (0.626–0.820 when trained on one), and its attention drifts off the face.
+- JPEG quality 10 drops the leave-one-out Celeb-DF model from 0.758 to 0.534 AUC, close to chance.
+- Training on more distinct videos gave the largest gain (+0.280 to +0.305). Rank-averaging four existing checkpoints added +0.066 on Celeb-DF at no training cost.
 
 Report source and slides: [`report/`](report). Results: [`results/499a_cnn`](results/499a_cnn).
 
@@ -102,8 +102,8 @@ Report source and slides: [`report/`](report). Results: [`results/499a_cnn`](res
 
 | | |
 |---|---|
-| **Data** | Celeb-DF, FaceForensics++ and DFDC face crops (Kaggle mirrors, see below). Splits are grouped by video, and by source identity for FF++, so no identity crosses train/val/test. |
-| **Protocol** | Leave-one-dataset-out over the three datasets. Training uses 9,000 frames per source dataset, spread across videos (one frame per video before any video gets a second). Testing scores 8 frames per video, and a video's score is the mean frame probability. |
+| **Data** | Celeb-DF, FaceForensics++ and DFDC face crops (Kaggle mirrors, see below). Splits are grouped by video, and FF++ videos that share a source identity are kept together, so no video (and no FF++ identity) crosses train/val/test. Celeb-DF and DFDC are grouped by video only. Under leave-one-dataset-out, the test dataset is never seen in training. |
+| **Protocol** | Leave-one-dataset-out over the three datasets. Training uses 9,000 frames per source dataset, spread across videos (one frame per video before any video gets a second). Testing scores 8 frames per video, and a video's score is the mean frame probability. Gate 0 and the codec-aware experiments score a fixed balanced subset of 1,000 videos (500 real, 500 fake) for Celeb-DF and FF++ and all 381 DFDC videos, so their clean AUCs differ slightly from Section 1. |
 | **Models** | `timm` EVA-02-L/14, CLIP ViT-L/14 and DINOv2 ViT-g/14. LoRA on q and v (rank 16, α = 32, dropout 0.05). The head is initialised from the frozen linear probe (LP-FT). 4 epochs, AdamW at 2e-4, AMP, DataParallel on 2 × T4. |
 | **DCT masks** | One 8×8 keep-mask per image, shared by every block and channel; DC is never dropped. Drop probabilities follow the JPEG luminance table, a uniform table or the inverted table, all at the same mean (0.169). The mask is applied to the crop at native resolution, before the 224 px resize. |
 | **Test conditions** | Clean, resize to 224, JPEG q50/q20, and H.264 CRF 23/40 (libx264 re-encoding of each video's sampled face crops as one clip). |
@@ -124,7 +124,7 @@ deepfake-codec-robustness/
 ├── src/               shared library code (the notebooks embed the same files)
 ├── analysis/          local analysis and figure scripts (CPU only)
 ├── results/           every result file: AUC tables, per-video predictions, logs, plots
-├── data/              item-5 face-set manifest (images are not redistributed)
+├── data/              unseen-generator face-set manifest (images are not redistributed)
 ├── report/            CSE 499A report (LaTeX) and slides
 └── assets/            README figures
 ```
@@ -166,7 +166,7 @@ python analysis/make_figures.py          # README figures
 
 Both analysis scripts reproduce the committed CSVs byte for byte.
 
-**Not included.** Model weights and cached features are too large for the repository; they are available on request. Dataset images are not redistributed: the face datasets have their own licences, and the item-5 set contains real FFHQ faces.
+**Not included.** Model weights and cached features are too large for the repository; they are available on request. Dataset images are not redistributed: the face datasets have their own licences, and the unseen-generator face set contains real FFHQ faces.
 
 ## Reproducibility notes
 
