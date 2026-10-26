@@ -1,0 +1,70 @@
+{
+  "status": "complete",
+  "best_epoch": 3,
+  "source_val_auc": 0.9747015873015873,
+  "epochs_run": 5,
+  "train_seconds": 306.274765253067,
+  "fold": "celebdf",
+  "arm": "rgb_realjpeg",
+  "seconds": 628.5126087665558,
+  "eval_seconds": 321.3833694458008,
+  "projected_hours": 0.20298142122744312,
+  "finished_at_hours": 6.333576520284017,
+  "conditions": [
+    "clean",
+    "jpeg50",
+    "jpeg20",
+    "clean_h264subset",
+    "h264_crf23",
+    "h264_crf40"
+  ],
+  "missing_conditions": [],
+  "signature": {
+    "arm": "rgb_realjpeg",
+    "definition": {
+      "model": "rgb",
+      "mask": null,
+      "realjpeg": true,
+      "trained": true
+    },
+    "held": "celebdf",
+    "checkpoint_sha256": "1f1141adc15cd1e927a98239dee09bd539cc3bfaf07acff48b0474f51c671264",
+    "h264": {
+      "h264_crf": [
+        23,
+        40
+      ],
+      "h264_videos_per_class": 500,
+      "h264_seed": 42,
+      "h264_preset": "medium",
+      "h264_fps": 25,
+      "h264_size": 224
+    },
+    "seed": 42,
+    "data_seed": 42,
+    "smoke": false,
+    "smoke_videos": 12,
+    "train_per_source": 9000,
+    "eval_frames_per_video": 8,
+    "epochs": 5,
+    "lr": 1e-05,
+    "weight_decay": 0.0001,
+    "batch_size": 32,
+    "grad_clip": 1.0,
+    "amp": true,
+    "deterministic": true,
+    "max_drop": 0.35,
+    "mask_seed_offset": 1000,
+    "realjpeg_p": 0.5,
+    "realjpeg_q": [
+      20,
+      95
+    ],
+    "realjpeg_seed_offset": 2000,
+    "jpeg_subsampling": 2,
+    "eval_jpeg": [
+      50,
+      20
+    ]
+  }
+}

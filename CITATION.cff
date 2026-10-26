@@ -1,0 +1,20 @@
+cff-version: 1.2.0
+message: "If you use this code or these results, please cite it as below."
+title: "Deepfake Detection under Real-World Compression: Foundation Models, LoRA and Codec-Aware Training"
+authors:
+  - family-names: Sikder
+    given-names: Kawser
+    affiliation: North South University
+  - family-names: Aurnobb
+    given-names: Tasneem Abdullah
+    affiliation: North South University
+year: 2026
+license: MIT
+repository-code: "https://github.com/kawsersikder/deepfake-codec-robustness"
+keywords:
+  - deepfake detection
+  - cross-dataset generalization
+  - foundation models
+  - LoRA
+  - video compression
+  - robustness

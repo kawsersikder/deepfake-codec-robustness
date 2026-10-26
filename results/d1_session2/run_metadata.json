@@ -1,0 +1,593 @@
+{
+  "smoke": false,
+  "arms": [
+    "plain",
+    "noaug",
+    "invmask",
+    "realjpeg"
+  ],
+  "folds": [
+    "dfdc",
+    "ffpp",
+    "celebdf"
+  ],
+  "config": {
+    "backbone": "eva02_l14",
+    "smoke": false,
+    "seed": 42,
+    "data_seed": 42,
+    "device": "cuda:0",
+    "amp": true,
+    "multi_gpu": true,
+    "img_size": 224,
+    "train_per_source": 9000,
+    "smoke_videos": 12,
+    "eval_frames_per_video": 8,
+    "probe_C": [
+      0.0001,
+      0.001,
+      0.01,
+      0.1,
+      1.0
+    ],
+    "lora_rank": 16,
+    "lora_alpha": 32,
+    "lora_dropout": 0.05,
+    "lora_targets": "qv",
+    "epochs": 4,
+    "batch_size": 32,
+    "eval_batch_size": 64,
+    "workers": 4,
+    "lr_lora": 0.0002,
+    "lr_head": 0.0002,
+    "weight_decay": 0.0001,
+    "warmup_frac": 0.05,
+    "grad_clip": 1.0,
+    "bootstrap": 1000,
+    "time_limit_h": 11.0,
+    "log_every": 100,
+    "jpeg": [
+      50,
+      20
+    ],
+    "jpeg_subsampling": 2,
+    "h264_crf": [
+      23,
+      40
+    ],
+    "h264_videos_per_class": 500,
+    "h264_seed": 42,
+    "h264_size": 224,
+    "h264_preset": "medium",
+    "h264_fps": 25,
+    "h264_workers": 4,
+    "max_drop": 0.35,
+    "aug_h264_p": 0.5,
+    "aug_h264_crf": [
+      23,
+      40
+    ],
+    "aug_h264_size": 224,
+    "aug_h264_preset": "veryfast",
+    "aug_h264_fps": 25,
+    "aug_jpeg_p": 0.5,
+    "aug_jpeg_q": [
+      20,
+      95
+    ],
+    "loader_bench_batches": 16,
+    "fail_commit_on_error": false
+  },
+  "consistency_tol": 0.002,
+  "seed_sd": 0.006,
+  "loader_contention": 0.75,
+  "errors": [],
+  "gate0_eva02_reference": {
+    "dfdc": {
+      "clean": 0.829724,
+      "resize224": 0.831493,
+      "jpeg50": 0.824935,
+      "jpeg20": 0.807204,
+      "h264_crf23": 0.810742,
+      "h264_crf40": 0.760397
+    },
+    "ffpp": {
+      "clean": 0.957328,
+      "resize224": 0.95644,
+      "jpeg50": 0.949004,
+      "jpeg20": 0.927328,
+      "h264_crf23": 0.946684,
+      "h264_crf40": 0.866752
+    },
+    "celebdf": {
+      "clean": 0.87452,
+      "resize224": 0.876032,
+      "jpeg50": 0.818884,
+      "jpeg20": 0.73998,
+      "h264_crf23": 0.835452,
+      "h264_crf40": 0.678916
+    }
+  },
+  "comparisons": [
+    [
+      "realh264",
+      "plain"
+    ],
+    [
+      "qmask",
+      "plain"
+    ],
+    [
+      "randmask",
+      "plain"
+    ],
+    [
+      "realjpeg",
+      "plain"
+    ],
+    [
+      "randmask_realh264",
+      "plain"
+    ],
+    [
+      "qmask_realh264",
+      "plain"
+    ],
+    [
+      "invmask",
+      "plain"
+    ],
+    [
+      "noaug",
+      "plain"
+    ],
+    [
+      "qmask",
+      "randmask"
+    ],
+    [
+      "qmask",
+      "invmask"
+    ],
+    [
+      "randmask_realh264",
+      "realh264"
+    ],
+    [
+      "qmask_realh264",
+      "realh264"
+    ],
+    [
+      "realh264",
+      "realjpeg"
+    ],
+    [
+      "realh264",
+      "noaug"
+    ],
+    [
+      "qmask",
+      "noaug"
+    ],
+    [
+      "randmask",
+      "noaug"
+    ],
+    [
+      "realjpeg",
+      "noaug"
+    ],
+    [
+      "randmask_realh264",
+      "noaug"
+    ],
+    [
+      "qmask_realh264",
+      "noaug"
+    ],
+    [
+      "invmask",
+      "noaug"
+    ]
+  ],
+  "arm_ops": {
+    "plain": [],
+    "realh264": [
+      "h264"
+    ],
+    "qmask": [
+      "qtable"
+    ],
+    "randmask": [
+      "uniform"
+    ],
+    "realjpeg": [
+      "jpeg"
+    ],
+    "randmask_realh264": [
+      "uniform",
+      "h264"
+    ],
+    "qmask_realh264": [
+      "qtable",
+      "h264"
+    ],
+    "invmask": [
+      "inverted"
+    ],
+    "noaug": [
+      "identity"
+    ]
+  },
+  "plain_checkpoints": {
+    "dfdc": {
+      "path": "/kaggle/input/datasets/kawsersikder/phase13-eva02-lora/lora_dfdc_best.pt",
+      "sha256": "aa402fecfe4253a6e3a5ea374c9b04cdd272c0ebb647d32562057098c71171b2"
+    },
+    "ffpp": {
+      "path": "/kaggle/input/datasets/kawsersikder/phase13-eva02-lora/lora_ffpp_best.pt",
+      "sha256": "ee1dcaed6af7b12e190813489ce13e4ac9ecfbf89f0843d611e0a9d1b5c8eac1"
+    },
+    "celebdf": {
+      "path": "/kaggle/input/datasets/kawsersikder/phase13-eva02-lora/lora_celebdf_best.pt",
+      "sha256": "025742f4bf6ca162e77c0eba40e1d618be6a8f48c3c4b9ba33716419e275dba3"
+    }
+  },
+  "probe_dirs": [
+    "/kaggle/input/datasets/kawsersikder/phase13-eva02-lora",
+    "/kaggle/input/datasets/kawsersikder/phase13-eva02-output"
+  ],
+  "reuse_roots": [],
+  "ffmpeg": "/usr/bin/ffmpeg (ffmpeg version 4.4.2-0ubuntu0.22.04.1 Copyright (c) 2000-2021 the FFmpeg developers)",
+  "split_origin": "original algorithm replay; assumes unchanged dataset snapshot",
+  "preflight": {
+    "dim": 1024,
+    "audit": {
+      "total_params": 304842689,
+      "lora_params": 1572864,
+      "head_params": 1025,
+      "trainable_params": 1573889,
+      "trainable_pct": 0.516295471990145
+    },
+    "bench": {
+      "train_img_s": 35.9888208067635,
+      "eval_img_s": 72.80565798463273
+    },
+    "grad_ckpt": false,
+    "micro_batch": 32,
+    "peak_gib": 6.565917491912842,
+    "normalisation": {
+      "mean": [
+        0.48145466,
+        0.4578275,
+        0.40821073
+      ],
+      "std": [
+        0.26862954,
+        0.26130258,
+        0.27577711
+      ]
+    },
+    "pooling": "avg",
+    "plan": [
+      {
+        "step": "feature bank (frozen probe)",
+        "frames": 82860,
+        "hours": 0.3635591985481894
+      },
+      {
+        "step": "LoRA, dfdc held out",
+        "frames": 18000,
+        "hours": 0.8601055401332365
+      },
+      {
+        "step": "LoRA, ffpp held out",
+        "frames": 18000,
+        "hours": 0.8744487095763217
+      },
+      {
+        "step": "LoRA, celebdf held out",
+        "frames": 18000,
+        "hours": 0.9073778887351941
+      }
+    ]
+  },
+  "loader_img_s": {
+    "none": 240.85443219270834,
+    "noaug": 361.9075916067134,
+    "invmask": 185.40260021464562,
+    "realjpeg": 333.0096999214727
+  },
+  "time_ratios": {
+    "train": [
+      1.0452477322679108,
+      1.044448464141313,
+      1.03732339128159,
+      1.0490705788054484,
+      1.0474267289379842,
+      1.0389068911299104,
+      1.0485045164456384,
+      1.045714589887872,
+      1.039366054462887
+    ],
+    "train_h264": [],
+    "eval": [
+      0.9210423040348592,
+      0.8955750051865917,
+      0.8979068958426829,
+      0.9200161738323339,
+      0.885689417714931,
+      0.8877888568981184,
+      0.9231824186057321,
+      0.886551532226258,
+      0.8893506079961763,
+      0.924265223097813,
+      0.8880336834813638,
+      0.8892435944758466
+    ]
+  },
+  "status": [
+    {
+      "arm": "plain",
+      "fold": "dfdc",
+      "status": "complete",
+      "reused_from": null,
+      "best_epoch": null,
+      "minutes": 5.3,
+      "error": null
+    },
+    {
+      "arm": "plain",
+      "fold": "ffpp",
+      "status": "complete",
+      "reused_from": null,
+      "best_epoch": null,
+      "minutes": 13.9,
+      "error": null
+    },
+    {
+      "arm": "plain",
+      "fold": "celebdf",
+      "status": "complete",
+      "reused_from": null,
+      "best_epoch": null,
+      "minutes": 13.2,
+      "error": null
+    },
+    {
+      "arm": "noaug",
+      "fold": "dfdc",
+      "status": "complete",
+      "reused_from": null,
+      "best_epoch": 4,
+      "minutes": 50.8,
+      "error": null
+    },
+    {
+      "arm": "noaug",
+      "fold": "ffpp",
+      "status": "complete",
+      "reused_from": null,
+      "best_epoch": 3,
+      "minutes": 57.4,
+      "error": null
+    },
+    {
+      "arm": "noaug",
+      "fold": "celebdf",
+      "status": "complete",
+      "reused_from": null,
+      "best_epoch": 4,
+      "minutes": 58.3,
+      "error": null
+    },
+    {
+      "arm": "invmask",
+      "fold": "dfdc",
+      "status": "complete",
+      "reused_from": null,
+      "best_epoch": 4,
+      "minutes": 50.9,
+      "error": null
+    },
+    {
+      "arm": "invmask",
+      "fold": "ffpp",
+      "status": "complete",
+      "reused_from": null,
+      "best_epoch": 4,
+      "minutes": 57.5,
+      "error": null
+    },
+    {
+      "arm": "invmask",
+      "fold": "celebdf",
+      "status": "complete",
+      "reused_from": null,
+      "best_epoch": 4,
+      "minutes": 58.4,
+      "error": null
+    },
+    {
+      "arm": "realjpeg",
+      "fold": "dfdc",
+      "status": "complete",
+      "reused_from": null,
+      "best_epoch": 4,
+      "minutes": 50.9,
+      "error": null
+    },
+    {
+      "arm": "realjpeg",
+      "fold": "ffpp",
+      "status": "complete",
+      "reused_from": null,
+      "best_epoch": 3,
+      "minutes": 57.5,
+      "error": null
+    },
+    {
+      "arm": "realjpeg",
+      "fold": "celebdf",
+      "status": "complete",
+      "reused_from": null,
+      "best_epoch": 3,
+      "minutes": 58.4,
+      "error": null
+    }
+  ],
+  "consistency": [
+    {
+      "fold": "dfdc",
+      "condition": "clean",
+      "auc": 0.8297238999137189,
+      "gate0_auc": 0.829724,
+      "gap": -1.0008628115176776e-07,
+      "verdict": "PASS"
+    },
+    {
+      "fold": "dfdc",
+      "condition": "resize224",
+      "auc": 0.831492666091458,
+      "gate0_auc": 0.831493,
+      "gap": -3.3390854203840803e-07,
+      "verdict": "PASS"
+    },
+    {
+      "fold": "dfdc",
+      "condition": "jpeg50",
+      "auc": 0.824935289042278,
+      "gate0_auc": 0.824935,
+      "gap": 2.8904227800108373e-07,
+      "verdict": "PASS"
+    },
+    {
+      "fold": "dfdc",
+      "condition": "jpeg20",
+      "auc": 0.8072044866264021,
+      "gate0_auc": 0.807204,
+      "gap": 4.86626402063095e-07,
+      "verdict": "PASS"
+    },
+    {
+      "fold": "dfdc",
+      "condition": "h264_crf23",
+      "auc": 0.8107420189818808,
+      "gate0_auc": 0.810742,
+      "gap": 1.8981880844926025e-08,
+      "verdict": "PASS"
+    },
+    {
+      "fold": "dfdc",
+      "condition": "h264_crf40",
+      "auc": 0.7603968938740293,
+      "gate0_auc": 0.760397,
+      "gap": -1.0612597067805041e-07,
+      "verdict": "PASS"
+    },
+    {
+      "fold": "ffpp",
+      "condition": "clean",
+      "auc": 0.957328,
+      "gate0_auc": 0.957328,
+      "gap": 0.0,
+      "verdict": "PASS"
+    },
+    {
+      "fold": "ffpp",
+      "condition": "resize224",
+      "auc": 0.95644,
+      "gate0_auc": 0.95644,
+      "gap": 0.0,
+      "verdict": "PASS"
+    },
+    {
+      "fold": "ffpp",
+      "condition": "jpeg50",
+      "auc": 0.949004,
+      "gate0_auc": 0.949004,
+      "gap": 0.0,
+      "verdict": "PASS"
+    },
+    {
+      "fold": "ffpp",
+      "condition": "jpeg20",
+      "auc": 0.9273279999999999,
+      "gate0_auc": 0.927328,
+      "gap": -1.1102230246251565e-16,
+      "verdict": "PASS"
+    },
+    {
+      "fold": "ffpp",
+      "condition": "h264_crf23",
+      "auc": 0.9466839999999999,
+      "gate0_auc": 0.946684,
+      "gap": -1.1102230246251565e-16,
+      "verdict": "PASS"
+    },
+    {
+      "fold": "ffpp",
+      "condition": "h264_crf40",
+      "auc": 0.8667520000000001,
+      "gate0_auc": 0.866752,
+      "gap": 1.1102230246251565e-16,
+      "verdict": "PASS"
+    },
+    {
+      "fold": "celebdf",
+      "condition": "clean",
+      "auc": 0.87452,
+      "gate0_auc": 0.87452,
+      "gap": 0.0,
+      "verdict": "PASS"
+    },
+    {
+      "fold": "celebdf",
+      "condition": "resize224",
+      "auc": 0.876032,
+      "gate0_auc": 0.876032,
+      "gap": 0.0,
+      "verdict": "PASS"
+    },
+    {
+      "fold": "celebdf",
+      "condition": "jpeg50",
+      "auc": 0.818884,
+      "gate0_auc": 0.818884,
+      "gap": 0.0,
+      "verdict": "PASS"
+    },
+    {
+      "fold": "celebdf",
+      "condition": "jpeg20",
+      "auc": 0.7399799999999999,
+      "gate0_auc": 0.73998,
+      "gap": -1.1102230246251565e-16,
+      "verdict": "PASS"
+    },
+    {
+      "fold": "celebdf",
+      "condition": "h264_crf23",
+      "auc": 0.835452,
+      "gate0_auc": 0.835452,
+      "gap": 0.0,
+      "verdict": "PASS"
+    },
+    {
+      "fold": "celebdf",
+      "condition": "h264_crf40",
+      "auc": 0.678916,
+      "gate0_auc": 0.678916,
+      "gap": 0.0,
+      "verdict": "PASS"
+    }
+  ],
+  "torch": "2.10.0+cu128",
+  "timm": "1.0.26",
+  "wall_hours": 9.066633341179953,
+  "gpus": [
+    "Tesla T4",
+    "Tesla T4"
+  ],
+  "note": "Celeb-DF and DFDC group_id equals video_id, so their intervals resample videos, not identities."
+}

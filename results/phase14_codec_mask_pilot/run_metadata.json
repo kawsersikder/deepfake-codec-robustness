@@ -1,0 +1,25 @@
+{
+  "config": {
+    "seed": 42,
+    "device": "cuda:0",
+    "amp": true,
+    "batch_size": 32,
+    "workers": 2,
+    "epochs": 5,
+    "lr": 1e-05,
+    "max_drop": 0.35,
+    "train_per_source": 9000,
+    "eval_frames_per_video": 8,
+    "flip_tta": true,
+    "bootstrap": 1000,
+    "split_origin": "original algorithm replay; assumes unchanged dataset snapshot",
+    "output_dir": "/kaggle/working/codec_pilot_20261009_120137"
+  },
+  "checkpoint_sha256": "322edc3f4ecb998955f56276c0f266b57236d10011d288857c89320ea7240470",
+  "torch_version": "2.10.0+cu128",
+  "numpy_version": "2.0.2",
+  "gpu": "Tesla T4",
+  "protocol": "single-seed matched continuation; source-only checkpoint selection; JPEG crop recompression",
+  "status": "complete",
+  "total_wall_hours": 0.6651687329088889
+}

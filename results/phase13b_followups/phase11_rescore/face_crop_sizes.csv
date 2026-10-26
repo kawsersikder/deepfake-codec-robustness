@@ -1,0 +1,4 @@
+dataset,sampled,short_side_p10,short_side_median,short_side_p90,share_at_least_448
+celebdf,2000,128.0,128.0,128.0,0.0
+dfdc,2000,160.0,160.0,160.0,0.0
+ffpp,2000,80.9,129.5,285.0,0.0155

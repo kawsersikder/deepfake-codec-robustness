@@ -1,0 +1,156 @@
+{
+  "bench": {
+    "train_img_s": 35.9888208067635,
+    "eval_img_s": 72.80565798463273
+  },
+  "micro_batch": 32,
+  "loader_img_s": {
+    "none": 240.85443219270834,
+    "noaug": 361.9075916067134,
+    "invmask": 185.40260021464562,
+    "realjpeg": 333.0096999214727
+  },
+  "loader_contention": 0.75,
+  "plan": [
+    {
+      "arm": "plain",
+      "fold": "dfdc",
+      "train_img_s": NaN,
+      "train_h": 0.0,
+      "eval_h": 0.08024101645002761,
+      "store_h": 0.029209999999999996,
+      "hours": 0.1394510164500276,
+      "finish_h": 0.3114105001397596,
+      "action": "run"
+    },
+    {
+      "arm": "plain",
+      "fold": "ffpp",
+      "train_img_s": NaN,
+      "train_h": 0.0,
+      "eval_h": 0.21052736501012823,
+      "store_h": 0.07666666666666666,
+      "hours": 0.31719403167679494,
+      "finish_h": 0.6286045318165545,
+      "action": "run"
+    },
+    {
+      "arm": "plain",
+      "fold": "celebdf",
+      "train_img_s": NaN,
+      "train_h": 0.0,
+      "eval_h": 0.19802261343080962,
+      "store_h": 0.07666666666666666,
+      "hours": 0.3046892800974763,
+      "finish_h": 0.9332938119140308,
+      "action": "run"
+    },
+    {
+      "arm": "noaug",
+      "fold": "dfdc",
+      "train_img_s": 35.9888208067635,
+      "train_h": 0.8601055401332365,
+      "eval_h": 0.08024101645002761,
+      "store_h": 0.0,
+      "hours": 0.9703465565832641,
+      "finish_h": 1.903640368497295,
+      "action": "run"
+    },
+    {
+      "arm": "noaug",
+      "fold": "ffpp",
+      "train_img_s": 35.9888208067635,
+      "train_h": 0.8744487095763217,
+      "eval_h": 0.21052736501012823,
+      "store_h": 0.0,
+      "hours": 1.1149760745864499,
+      "finish_h": 3.0186164430837445,
+      "action": "run"
+    },
+    {
+      "arm": "noaug",
+      "fold": "celebdf",
+      "train_img_s": 35.9888208067635,
+      "train_h": 0.9073778887351941,
+      "eval_h": 0.19802261343080962,
+      "store_h": 0.0,
+      "hours": 1.1354005021660039,
+      "finish_h": 4.154016945249748,
+      "action": "run"
+    },
+    {
+      "arm": "invmask",
+      "fold": "dfdc",
+      "train_img_s": 35.9888208067635,
+      "train_h": 0.8601055401332365,
+      "eval_h": 0.08024101645002761,
+      "store_h": 0.0,
+      "hours": 0.9703465565832641,
+      "finish_h": 5.124363501833012,
+      "action": "run"
+    },
+    {
+      "arm": "invmask",
+      "fold": "ffpp",
+      "train_img_s": 35.9888208067635,
+      "train_h": 0.8744487095763217,
+      "eval_h": 0.21052736501012823,
+      "store_h": 0.0,
+      "hours": 1.1149760745864499,
+      "finish_h": 6.239339576419463,
+      "action": "run"
+    },
+    {
+      "arm": "invmask",
+      "fold": "celebdf",
+      "train_img_s": 35.9888208067635,
+      "train_h": 0.9073778887351941,
+      "eval_h": 0.19802261343080962,
+      "store_h": 0.0,
+      "hours": 1.1354005021660039,
+      "finish_h": 7.374740078585466,
+      "action": "run"
+    },
+    {
+      "arm": "realjpeg",
+      "fold": "dfdc",
+      "train_img_s": 35.9888208067635,
+      "train_h": 0.8601055401332365,
+      "eval_h": 0.08024101645002761,
+      "store_h": 0.0,
+      "hours": 0.9703465565832641,
+      "finish_h": 8.34508663516873,
+      "action": "run"
+    },
+    {
+      "arm": "realjpeg",
+      "fold": "ffpp",
+      "train_img_s": 35.9888208067635,
+      "train_h": 0.8744487095763217,
+      "eval_h": 0.21052736501012823,
+      "store_h": 0.0,
+      "hours": 1.1149760745864499,
+      "finish_h": 9.46006270975518,
+      "action": "run"
+    },
+    {
+      "arm": "realjpeg",
+      "fold": "celebdf",
+      "train_img_s": 35.9888208067635,
+      "train_h": 0.9073778887351941,
+      "eval_h": 0.19802261343080962,
+      "store_h": 0.0,
+      "hours": 1.1354005021660039,
+      "finish_h": 10.595463211921183,
+      "action": "run"
+    }
+  ],
+  "projected_finish_h": 10.595463211921183,
+  "whole_arms": [
+    "plain",
+    "noaug",
+    "invmask",
+    "realjpeg"
+  ],
+  "ffmpeg": "/usr/bin/ffmpeg (ffmpeg version 4.4.2-0ubuntu0.22.04.1 Copyright (c) 2000-2021 the FFmpeg developers)"
+}

@@ -1,0 +1,70 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.ipynb_checkpoints/
+.pytest_cache/
+
+# Environments and secrets
+.venv/
+venv/
+env/
+.env
+.env.*
+kaggle.json
+
+# Editors and OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Model weights and cached features (shared on request, too large for git)
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+*.onnx
+*.npy
+*.npz
+*.h5
+
+# Archives and Kaggle downloads
+*.zip
+*.tar
+*.tar.gz
+*.gz
+!results/**/bank_*.csv.gz
+results (*)/
+_kaggle_extras/
+__results___files/
+__huggingface_repos__.json
+/kaggle/
+working/
+
+# Datasets and images (not redistributed: dataset licences, real faces)
+data/**/*.jpg
+data/**/*.jpeg
+data/**/*.png
+data/**/*.webp
+data/raw/
+data/faces/
+
+# Decoded video caches
+*.mp4
+*.avi
+*.mkv
+*.h264
+
+# LaTeX build files
+report/*.aux
+report/*.bbl
+report/*.blg
+report/*.fdb_latexmk
+report/*.fls
+report/*.log
+report/*.out
+report/*.synctex.gz
+report/*.toc
+report/*.lof
+report/*.lot

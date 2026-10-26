@@ -1,0 +1,41 @@
+{
+  "gate": "PASS",
+  "folds_passing": [
+    "celebdf",
+    "dfdc",
+    "ffpp"
+  ],
+  "needed": 2,
+  "threshold": 0.03,
+  "eva02_crf40_drop": {
+    "celebdf": {
+      "drop": 0.197116,
+      "lo": 0.1706016092283494,
+      "hi": 0.224186710500374
+    },
+    "dfdc": {
+      "drop": 0.0710957722174288,
+      "lo": 0.0226352855354149,
+      "hi": 0.1206770684223646
+    },
+    "ffpp": {
+      "drop": 0.0896879999999999,
+      "lo": 0.0736827180625535,
+      "hi": 0.1061988103363439
+    }
+  },
+  "format_audit": {
+    "dfdc": 0.389,
+    "ffpp": 0.532,
+    "celebdf": 0.495
+  },
+  "format_audit_fail": [],
+  "strength_audit": {
+    "dfdc": 0.541,
+    "ffpp": 0.713,
+    "celebdf": 0.626
+  },
+  "strength_audit_warn": [],
+  "next": "D1: codec-consistent EVA-02 training",
+  "note": "Computed locally on 10 Oct 2026 from gate0_drops.csv (Kaggle, codec7 paired cluster bootstrap, 1,000 resamples). The Kaggle Cell 8 crashed on a column-name bug (eva.drop), which is fixed in the notebook."
+}

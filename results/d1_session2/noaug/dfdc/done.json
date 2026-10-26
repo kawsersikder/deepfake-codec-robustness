@@ -1,0 +1,92 @@
+{
+  "status": "complete",
+  "arm": "noaug",
+  "fold": "dfdc",
+  "ops": [
+    "identity"
+  ],
+  "training": {
+    "status": "complete",
+    "best_epoch": 4,
+    "source_val_auc": 0.9962369131150381,
+    "full_test_auc": 0.83244176013805,
+    "train_hours": 0.7479068603780534,
+    "wall_seconds": 2814.334013223648
+  },
+  "auc": {
+    "clean": 0.8323986194995686,
+    "resize224": 0.8351164797238999,
+    "jpeg50": 0.8169111302847282,
+    "jpeg20": 0.7894736842105264,
+    "h264_crf23": 0.8100086281276961,
+    "h264_crf40": 0.7573770491803279
+  },
+  "seconds": 3045.43225812912,
+  "train_seconds": 2814.334013223648,
+  "store_seconds": 3.814697265625e-06,
+  "eval_seconds": 231.0981900691986,
+  "projected": {
+    "train_img_s": 35.9888208067635,
+    "train_raw_h": 0.7479178609854231,
+    "train_h": 0.8601055401332365,
+    "eval_raw_h": 0.0697747969130675,
+    "eval_h": 0.07204896199990594,
+    "store_h": 0.0,
+    "hours": 0.9621545021331425
+  },
+  "finished_at_hours": 1.5758764056364696,
+  "signature": {
+    "arm": "noaug",
+    "held": "dfdc",
+    "ops": [
+      "identity"
+    ],
+    "aug": {},
+    "evaluation": {
+      "smoke": false,
+      "smoke_videos": 12,
+      "eval_frames_per_video": 8,
+      "jpeg": [
+        50,
+        20
+      ],
+      "jpeg_subsampling": 2,
+      "h264_crf": [
+        23,
+        40
+      ],
+      "h264_videos_per_class": 500,
+      "h264_seed": 42,
+      "h264_size": 224,
+      "h264_preset": "medium",
+      "h264_fps": 25
+    },
+    "training": {
+      "seed": 42,
+      "data_seed": 42,
+      "smoke": false,
+      "smoke_videos": 12,
+      "train_per_source": 9000,
+      "eval_frames_per_video": 8,
+      "probe_C": [
+        0.0001,
+        0.001,
+        0.01,
+        0.1,
+        1.0
+      ],
+      "lora_rank": 16,
+      "lora_alpha": 32,
+      "lora_dropout": 0.05,
+      "lora_targets": "qv",
+      "epochs": 4,
+      "batch_size": 32,
+      "lr_lora": 0.0002,
+      "lr_head": 0.0002,
+      "weight_decay": 0.0001,
+      "warmup_frac": 0.05,
+      "grad_clip": 1.0,
+      "amp": true
+    }
+  }
+}

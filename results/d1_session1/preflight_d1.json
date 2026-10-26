@@ -1,0 +1,325 @@
+{
+  "bench": {
+    "train_img_s": 35.83884157390237,
+    "eval_img_s": 67.5755775419425
+  },
+  "micro_batch": 32,
+  "loader_img_s": {
+    "none": 183.43703816330932,
+    "realh264": 22.058913721040536,
+    "qmask": 210.0013268077756,
+    "randmask": 195.82845716002166,
+    "realjpeg": 360.9738565530239,
+    "randmask_realh264": 22.408389948731195,
+    "qmask_realh264": 22.482292513216052,
+    "invmask": 200.75481093053065,
+    "noaug": 382.33985010383344
+  },
+  "loader_contention": 0.75,
+  "plan": [
+    {
+      "arm": "plain",
+      "fold": "dfdc",
+      "train_img_s": NaN,
+      "train_h": 0.0,
+      "eval_h": 0.08645135139798124,
+      "store_h": 0.029209999999999996,
+      "hours": 0.14566135139798125,
+      "finish_h": 0.3752066278278993,
+      "action": "run"
+    },
+    {
+      "arm": "plain",
+      "fold": "ffpp",
+      "train_img_s": NaN,
+      "train_h": 0.0,
+      "eval_h": 0.22682134420264302,
+      "store_h": 0.07666666666666666,
+      "hours": 0.3334880108693097,
+      "finish_h": 0.7086946386972091,
+      "action": "run"
+    },
+    {
+      "arm": "plain",
+      "fold": "celebdf",
+      "train_img_s": NaN,
+      "train_h": 0.0,
+      "eval_h": 0.213348774677039,
+      "store_h": 0.07666666666666666,
+      "hours": 0.32001544134370563,
+      "finish_h": 1.0287100800409146,
+      "action": "run"
+    },
+    {
+      "arm": "realh264",
+      "fold": "dfdc",
+      "train_img_s": 16.5441852907804,
+      "train_h": 1.6283406590137164,
+      "eval_h": 0.08645135139798124,
+      "store_h": 0.0,
+      "hours": 1.7447920104116976,
+      "finish_h": 2.773502090452612,
+      "action": "run"
+    },
+    {
+      "arm": "realh264",
+      "fold": "ffpp",
+      "train_img_s": 16.5441852907804,
+      "train_h": 1.6437939326204531,
+      "eval_h": 0.22682134420264302,
+      "store_h": 0.0,
+      "hours": 1.9006152768230962,
+      "finish_h": 4.674117367275708,
+      "action": "run"
+    },
+    {
+      "arm": "realh264",
+      "fold": "celebdf",
+      "train_img_s": 16.5441852907804,
+      "train_h": 1.6792716990378773,
+      "eval_h": 0.213348774677039,
+      "store_h": 0.0,
+      "hours": 1.9226204737149164,
+      "finish_h": 6.596737840990625,
+      "action": "run"
+    },
+    {
+      "arm": "qmask",
+      "fold": "dfdc",
+      "train_img_s": 35.83884157390237,
+      "train_h": 0.8798859355065506,
+      "eval_h": 0.08645135139798124,
+      "store_h": 0.0,
+      "hours": 0.9963372869045318,
+      "finish_h": 7.5930751278951565,
+      "action": "run"
+    },
+    {
+      "arm": "qmask",
+      "fold": "ffpp",
+      "train_img_s": 35.83884157390237,
+      "train_h": 0.8953392091132872,
+      "eval_h": 0.22682134420264302,
+      "store_h": 0.0,
+      "hours": 1.1521605533159303,
+      "finish_h": 8.745235681211087,
+      "action": "run"
+    },
+    {
+      "arm": "qmask",
+      "fold": "celebdf",
+      "train_img_s": 35.83884157390237,
+      "train_h": 0.9308169755307113,
+      "eval_h": 0.213348774677039,
+      "store_h": 0.0,
+      "hours": 1.1741657502077503,
+      "finish_h": 9.919401431418837,
+      "action": "run"
+    },
+    {
+      "arm": "randmask",
+      "fold": "dfdc",
+      "train_img_s": 35.83884157390237,
+      "train_h": 0.8798859355065506,
+      "eval_h": 0.08645135139798124,
+      "store_h": 0.0,
+      "hours": 0.9963372869045318,
+      "finish_h": 10.91573871832337,
+      "action": "run"
+    },
+    {
+      "arm": "randmask",
+      "fold": "ffpp",
+      "train_img_s": 35.83884157390237,
+      "train_h": 0.8953392091132872,
+      "eval_h": 0.22682134420264302,
+      "store_h": 0.0,
+      "hours": 1.1521605533159303,
+      "finish_h": NaN,
+      "action": "SKIP (time budget)"
+    },
+    {
+      "arm": "randmask",
+      "fold": "celebdf",
+      "train_img_s": 35.83884157390237,
+      "train_h": 0.9308169755307113,
+      "eval_h": 0.213348774677039,
+      "store_h": 0.0,
+      "hours": 1.1741657502077503,
+      "finish_h": NaN,
+      "action": "SKIP (time budget)"
+    },
+    {
+      "arm": "realjpeg",
+      "fold": "dfdc",
+      "train_img_s": 35.83884157390237,
+      "train_h": 0.8798859355065506,
+      "eval_h": 0.08645135139798124,
+      "store_h": 0.0,
+      "hours": 0.9963372869045318,
+      "finish_h": NaN,
+      "action": "SKIP (time budget)"
+    },
+    {
+      "arm": "realjpeg",
+      "fold": "ffpp",
+      "train_img_s": 35.83884157390237,
+      "train_h": 0.8953392091132872,
+      "eval_h": 0.22682134420264302,
+      "store_h": 0.0,
+      "hours": 1.1521605533159303,
+      "finish_h": NaN,
+      "action": "SKIP (time budget)"
+    },
+    {
+      "arm": "realjpeg",
+      "fold": "celebdf",
+      "train_img_s": 35.83884157390237,
+      "train_h": 0.9308169755307113,
+      "eval_h": 0.213348774677039,
+      "store_h": 0.0,
+      "hours": 1.1741657502077503,
+      "finish_h": NaN,
+      "action": "SKIP (time budget)"
+    },
+    {
+      "arm": "randmask_realh264",
+      "fold": "dfdc",
+      "train_img_s": 16.806292461548395,
+      "train_h": 1.6066591534478745,
+      "eval_h": 0.08645135139798124,
+      "store_h": 0.0,
+      "hours": 1.7231105048458557,
+      "finish_h": NaN,
+      "action": "SKIP (time budget)"
+    },
+    {
+      "arm": "randmask_realh264",
+      "fold": "ffpp",
+      "train_img_s": 16.806292461548395,
+      "train_h": 1.6221124270546114,
+      "eval_h": 0.22682134420264302,
+      "store_h": 0.0,
+      "hours": 1.8789337712572545,
+      "finish_h": NaN,
+      "action": "SKIP (time budget)"
+    },
+    {
+      "arm": "randmask_realh264",
+      "fold": "celebdf",
+      "train_img_s": 16.806292461548395,
+      "train_h": 1.6575901934720354,
+      "eval_h": 0.213348774677039,
+      "store_h": 0.0,
+      "hours": 1.9009389681490745,
+      "finish_h": NaN,
+      "action": "SKIP (time budget)"
+    },
+    {
+      "arm": "qmask_realh264",
+      "fold": "dfdc",
+      "train_img_s": 16.86171938491204,
+      "train_h": 1.602160579806892,
+      "eval_h": 0.08645135139798124,
+      "store_h": 0.0,
+      "hours": 1.7186119312048733,
+      "finish_h": NaN,
+      "action": "SKIP (time budget)"
+    },
+    {
+      "arm": "qmask_realh264",
+      "fold": "ffpp",
+      "train_img_s": 16.86171938491204,
+      "train_h": 1.6176138534136288,
+      "eval_h": 0.22682134420264302,
+      "store_h": 0.0,
+      "hours": 1.8744351976162719,
+      "finish_h": NaN,
+      "action": "SKIP (time budget)"
+    },
+    {
+      "arm": "qmask_realh264",
+      "fold": "celebdf",
+      "train_img_s": 16.86171938491204,
+      "train_h": 1.653091619831053,
+      "eval_h": 0.213348774677039,
+      "store_h": 0.0,
+      "hours": 1.896440394508092,
+      "finish_h": NaN,
+      "action": "SKIP (time budget)"
+    },
+    {
+      "arm": "invmask",
+      "fold": "dfdc",
+      "train_img_s": 35.83884157390237,
+      "train_h": 0.8798859355065506,
+      "eval_h": 0.08645135139798124,
+      "store_h": 0.0,
+      "hours": 0.9963372869045318,
+      "finish_h": NaN,
+      "action": "SKIP (time budget)"
+    },
+    {
+      "arm": "invmask",
+      "fold": "ffpp",
+      "train_img_s": 35.83884157390237,
+      "train_h": 0.8953392091132872,
+      "eval_h": 0.22682134420264302,
+      "store_h": 0.0,
+      "hours": 1.1521605533159303,
+      "finish_h": NaN,
+      "action": "SKIP (time budget)"
+    },
+    {
+      "arm": "invmask",
+      "fold": "celebdf",
+      "train_img_s": 35.83884157390237,
+      "train_h": 0.9308169755307113,
+      "eval_h": 0.213348774677039,
+      "store_h": 0.0,
+      "hours": 1.1741657502077503,
+      "finish_h": NaN,
+      "action": "SKIP (time budget)"
+    },
+    {
+      "arm": "noaug",
+      "fold": "dfdc",
+      "train_img_s": 35.83884157390237,
+      "train_h": 0.8798859355065506,
+      "eval_h": 0.08645135139798124,
+      "store_h": 0.0,
+      "hours": 0.9963372869045318,
+      "finish_h": NaN,
+      "action": "SKIP (time budget)"
+    },
+    {
+      "arm": "noaug",
+      "fold": "ffpp",
+      "train_img_s": 35.83884157390237,
+      "train_h": 0.8953392091132872,
+      "eval_h": 0.22682134420264302,
+      "store_h": 0.0,
+      "hours": 1.1521605533159303,
+      "finish_h": NaN,
+      "action": "SKIP (time budget)"
+    },
+    {
+      "arm": "noaug",
+      "fold": "celebdf",
+      "train_img_s": 35.83884157390237,
+      "train_h": 0.9308169755307113,
+      "eval_h": 0.213348774677039,
+      "store_h": 0.0,
+      "hours": 1.1741657502077503,
+      "finish_h": NaN,
+      "action": "SKIP (time budget)"
+    }
+  ],
+  "projected_finish_h": 10.91573871832337,
+  "whole_arms": [
+    "plain",
+    "realh264",
+    "qmask"
+  ],
+  "ffmpeg": "/usr/bin/ffmpeg (ffmpeg version 4.4.2-0ubuntu0.22.04.1 Copyright (c) 2000-2021 the FFmpeg developers)"
+}

@@ -1,0 +1,154 @@
+{
+  "bench": {
+    "train_img_s": 36.894449630609444,
+    "eval_img_s": 16.820524645831856
+  },
+  "micro_batch": 32,
+  "loader_img_s": {
+    "none": 27.667970539101017,
+    "qmask_highE": 188.67593538948765,
+    "randmask_lowE": 187.6259788515298,
+    "invmask_highE": 182.48899963229994
+  },
+  "loader_contention": 0.75,
+  "plan": [
+    {
+      "arm": "plain",
+      "fold": "dfdc",
+      "train_img_s": NaN,
+      "train_h": 0.0,
+      "eval_h": 0.34731378021836273,
+      "store_h": 0.029209999999999996,
+      "hours": 0.4065237802183628,
+      "finish_h": 0.6106026936818494,
+      "action": "run"
+    },
+    {
+      "arm": "plain",
+      "fold": "ffpp",
+      "train_img_s": NaN,
+      "train_h": 0.0,
+      "eval_h": 0.911242880710711,
+      "store_h": 0.07666666666666666,
+      "hours": 1.0179095473773776,
+      "finish_h": 1.628512241059227,
+      "action": "run"
+    },
+    {
+      "arm": "plain",
+      "fold": "celebdf",
+      "train_img_s": NaN,
+      "train_h": 0.0,
+      "eval_h": 0.8571175376648704,
+      "store_h": 0.07666666666666666,
+      "hours": 0.9637842043315371,
+      "finish_h": 2.592296445390764,
+      "action": "run"
+    },
+    {
+      "arm": "qmask_highE",
+      "fold": "dfdc",
+      "train_img_s": 36.894449630609444,
+      "train_h": 1.5800511975418774,
+      "eval_h": 0.34731378021836273,
+      "store_h": 0.0,
+      "hours": 1.9573649777602402,
+      "finish_h": 4.549661423151004,
+      "action": "run"
+    },
+    {
+      "arm": "qmask_highE",
+      "fold": "ffpp",
+      "train_img_s": 36.894449630609444,
+      "train_h": 1.6421339155828787,
+      "eval_h": 0.911242880710711,
+      "store_h": 0.0,
+      "hours": 2.5833767962935896,
+      "finish_h": 7.133038219444594,
+      "action": "run"
+    },
+    {
+      "arm": "qmask_highE",
+      "fold": "celebdf",
+      "train_img_s": 36.894449630609444,
+      "train_h": 1.7846639856035924,
+      "eval_h": 0.8571175376648704,
+      "store_h": 0.0,
+      "hours": 2.6717815232684625,
+      "finish_h": 9.804819742713057,
+      "action": "run"
+    },
+    {
+      "arm": "randmask_lowE",
+      "fold": "dfdc",
+      "train_img_s": 36.894449630609444,
+      "train_h": 1.5800511975418774,
+      "eval_h": 0.34731378021836273,
+      "store_h": 0.0,
+      "hours": 1.9573649777602402,
+      "finish_h": NaN,
+      "action": "SKIP (time budget)"
+    },
+    {
+      "arm": "randmask_lowE",
+      "fold": "ffpp",
+      "train_img_s": 36.894449630609444,
+      "train_h": 1.6421339155828787,
+      "eval_h": 0.911242880710711,
+      "store_h": 0.0,
+      "hours": 2.5833767962935896,
+      "finish_h": NaN,
+      "action": "SKIP (time budget)"
+    },
+    {
+      "arm": "randmask_lowE",
+      "fold": "celebdf",
+      "train_img_s": 36.894449630609444,
+      "train_h": 1.7846639856035924,
+      "eval_h": 0.8571175376648704,
+      "store_h": 0.0,
+      "hours": 2.6717815232684625,
+      "finish_h": NaN,
+      "action": "SKIP (time budget)"
+    },
+    {
+      "arm": "invmask_highE",
+      "fold": "dfdc",
+      "train_img_s": 36.894449630609444,
+      "train_h": 1.5800511975418774,
+      "eval_h": 0.34731378021836273,
+      "store_h": 0.0,
+      "hours": 1.9573649777602402,
+      "finish_h": NaN,
+      "action": "SKIP (time budget)"
+    },
+    {
+      "arm": "invmask_highE",
+      "fold": "ffpp",
+      "train_img_s": 36.894449630609444,
+      "train_h": 1.6421339155828787,
+      "eval_h": 0.911242880710711,
+      "store_h": 0.0,
+      "hours": 2.5833767962935896,
+      "finish_h": NaN,
+      "action": "SKIP (time budget)"
+    },
+    {
+      "arm": "invmask_highE",
+      "fold": "celebdf",
+      "train_img_s": 36.894449630609444,
+      "train_h": 1.7846639856035924,
+      "eval_h": 0.8571175376648704,
+      "store_h": 0.0,
+      "hours": 2.6717815232684625,
+      "finish_h": NaN,
+      "action": "SKIP (time budget)"
+    }
+  ],
+  "projected_finish_h": 9.804819742713057,
+  "whole_arms": [
+    "plain",
+    "qmask_highE"
+  ],
+  "ffmpeg": "/usr/bin/ffmpeg (ffmpeg version 4.4.2-0ubuntu0.22.04.1 Copyright (c) 2000-2021 the FFmpeg developers)"
+}

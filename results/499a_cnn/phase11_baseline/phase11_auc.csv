@@ -1,0 +1,7 @@
+arm,held_out,auc,n_videos,baseline_auc,delta,error
+baseline,celebdf,0.7832931151384052,6528.0,0.7649893648025332,0.01830375033587195,
+baseline,ffpp,0.8383539999999999,2000.0,0.8559435,-0.017589500000000036,
+baseline,dfdc,0.7748490077653148,381.0,0.7699525452976705,0.0048964624676443025,
+dualstream,celebdf,,,,,The size of tensor a (224) must match the size of tensor b (9) at non-singleton dimension 3
+dualstream,ffpp,,,,,The size of tensor a (224) must match the size of tensor b (9) at non-singleton dimension 3
+dualstream,dfdc,,,,,The size of tensor a (224) must match the size of tensor b (9) at non-singleton dimension 3

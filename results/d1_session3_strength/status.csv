@@ -1,0 +1,13 @@
+arm,fold,status,reused_from,best_epoch,minutes,error
+plain,dfdc,complete,,,5.1,
+plain,ffpp,complete,,,13.3,
+plain,celebdf,complete,,,12.4,
+qmask_highE,dfdc,complete,,4.0,50.3,
+qmask_highE,ffpp,complete,,4.0,56.9,
+qmask_highE,celebdf,complete,,2.0,57.7,
+randmask_lowE,dfdc,complete,,4.0,50.3,
+randmask_lowE,ffpp,complete,,4.0,56.7,
+randmask_lowE,celebdf,complete,,4.0,57.2,
+invmask_highE,dfdc,complete,,4.0,48.3,
+invmask_highE,ffpp,complete,,4.0,54.5,
+invmask_highE,celebdf,complete,,4.0,56.9,

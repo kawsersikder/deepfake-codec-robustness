@@ -1,0 +1,52 @@
+{
+  "dim": 1024,
+  "audit": {
+    "total_params": 304842689,
+    "lora_params": 1572864,
+    "head_params": 1025,
+    "trainable_params": 1573889,
+    "trainable_pct": 0.516295471990145
+  },
+  "bench": {
+    "train_img_s": 35.9888208067635,
+    "eval_img_s": 72.80565798463273
+  },
+  "grad_ckpt": false,
+  "micro_batch": 32,
+  "peak_gib": 6.565917491912842,
+  "normalisation": {
+    "mean": [
+      0.48145466,
+      0.4578275,
+      0.40821073
+    ],
+    "std": [
+      0.26862954,
+      0.26130258,
+      0.27577711
+    ]
+  },
+  "pooling": "avg",
+  "plan": [
+    {
+      "step": "feature bank (frozen probe)",
+      "frames": 82860,
+      "hours": 0.3635591985481894
+    },
+    {
+      "step": "LoRA, dfdc held out",
+      "frames": 18000,
+      "hours": 0.8601055401332365
+    },
+    {
+      "step": "LoRA, ffpp held out",
+      "frames": 18000,
+      "hours": 0.8744487095763217
+    },
+    {
+      "step": "LoRA, celebdf held out",
+      "frames": 18000,
+      "hours": 0.9073778887351941
+    }
+  ]
+}

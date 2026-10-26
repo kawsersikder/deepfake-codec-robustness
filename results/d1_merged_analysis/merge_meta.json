@@ -1,0 +1,15 @@
+{
+  "plain_identical": true,
+  "sources": {
+    "plain": "d1_session1",
+    "realh264": "d1_session1",
+    "qmask": "d1_session1",
+    "randmask": "d1_session1",
+    "noaug": "d1_session2",
+    "invmask": "d1_session2",
+    "realjpeg": "d1_session2"
+  },
+  "n_boot": 1000,
+  "seed": 42,
+  "seed_sd": 0.006
+}

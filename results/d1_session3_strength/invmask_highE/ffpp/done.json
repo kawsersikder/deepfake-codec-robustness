@@ -1,0 +1,196 @@
+{
+  "status": "complete",
+  "arm": "invmask_highE",
+  "fold": "ffpp",
+  "ops": [
+    "inverted_at_uniform"
+  ],
+  "training": {
+    "status": "complete",
+    "best_epoch": 4,
+    "source_val_auc": 0.9768825561236275,
+    "full_test_auc": 0.968839,
+    "train_hours": 0.7312242221832276,
+    "wall_seconds": 2724.4828250408173
+  },
+  "strength": {
+    "inverted_at_uniform": {
+      "ordering": "inverted",
+      "strength_of": "uniform",
+      "scale": 0.5102533000216248,
+      "mean_ac_drop": 0.08602617620199295,
+      "removed_energy": 28.376318991767533,
+      "psnr_db": 33.6012430326469,
+      "share_of_ac_energy": 0.16859504132231407,
+      "expected_dropped": 5.419649100725556,
+      "untouched_share": 0.0031387442594094568,
+      "mask_entropy_bits": 25.059943633009144,
+      "always_dropped": 0,
+      "deterministic_share": 0.0
+    }
+  },
+  "auc": {
+    "clean": 0.971612,
+    "resize224": 0.9710320000000001,
+    "jpeg50": 0.96632,
+    "jpeg20": 0.9525719999999999,
+    "h264_crf23": 0.963596,
+    "h264_crf40": 0.906784
+  },
+  "seconds": 3271.847628593445,
+  "train_seconds": 2724.4828250408173,
+  "store_seconds": 3.337860107421875e-06,
+  "eval_seconds": 547.364743232727,
+  "projected": {
+    "train_img_s": 36.894449630609444,
+    "train_raw_h": 1.42794253528946,
+    "train_h": 0.9041577032638918,
+    "eval_raw_h": 0.7923851136614879,
+    "eval_h": 0.18312260404262223,
+    "store_h": 0.0,
+    "hours": 1.117280307306514
+  },
+  "finished_at_hours": 8.704079096714656,
+  "signature": {
+    "arm": "invmask_highE",
+    "held": "ffpp",
+    "ops": [
+      "inverted_at_uniform"
+    ],
+    "aug": {
+      "energy_frames": 600,
+      "energy_seed": 42,
+      "max_drop": 0.35
+    },
+    "evaluation": {
+      "smoke": false,
+      "smoke_videos": 12,
+      "eval_frames_per_video": 8,
+      "jpeg": [
+        50,
+        20
+      ],
+      "jpeg_subsampling": 2,
+      "h264_crf": [
+        23,
+        40
+      ],
+      "h264_videos_per_class": 500,
+      "h264_seed": 42,
+      "h264_size": 224,
+      "h264_preset": "medium",
+      "h264_fps": 25
+    },
+    "tables": {
+      "inverted_at_uniform": [
+        [
+          0.0,
+          0.177113,
+          0.178589,
+          0.150546,
+          0.130867,
+          0.104054,
+          0.09446,
+          0.081177
+        ],
+        [
+          0.166043,
+          0.166043,
+          0.152514,
+          0.144642,
+          0.119551,
+          0.082653,
+          0.082653,
+          0.09077
+        ],
+        [
+          0.152514,
+          0.160877,
+          0.150546,
+          0.130867,
+          0.104054,
+          0.084129,
+          0.059038,
+          0.08708
+        ],
+        [
+          0.152514,
+          0.147594,
+          0.138,
+          0.118075,
+          0.09446,
+          0.035423,
+          0.042802,
+          0.081177
+        ],
+        [
+          0.146118,
+          0.138,
+          0.113647,
+          0.08708,
+          0.072321,
+          0.019187,
+          0.021647,
+          0.05461
+        ],
+        [
+          0.130867,
+          0.115123,
+          0.09077,
+          0.075273,
+          0.038374,
+          0.020663,
+          0.017711,
+          0.033947
+        ],
+        [
+          0.100364,
+          0.075273,
+          0.051658,
+          0.035423,
+          0.021647,
+          0.014759,
+          0.016235,
+          0.023615
+        ],
+        [
+          0.059038,
+          0.033947,
+          0.032471,
+          0.028043,
+          0.017711,
+          0.025091,
+          0.021647,
+          0.026567
+        ]
+      ]
+    },
+    "training": {
+      "seed": 42,
+      "data_seed": 42,
+      "smoke": false,
+      "smoke_videos": 12,
+      "train_per_source": 9000,
+      "eval_frames_per_video": 8,
+      "probe_C": [
+        0.0001,
+        0.001,
+        0.01,
+        0.1,
+        1.0
+      ],
+      "lora_rank": 16,
+      "lora_alpha": 32,
+      "lora_dropout": 0.05,
+      "lora_targets": "qv",
+      "epochs": 4,
+      "batch_size": 32,
+      "lr_lora": 0.0002,
+      "lr_head": 0.0002,
+      "weight_decay": 0.0001,
+      "warmup_frac": 0.05,
+      "grad_clip": 1.0,
+      "amp": true
+    }
+  }
+}

@@ -1,0 +1,75 @@
+{
+  "n_pairs": 137,
+  "source": "celebdf",
+  "steps": 20,
+  "rows": [
+    {
+      "checkpoint": "model_aug_loo_celebdf.pth",
+      "auc": 0.4232244658745804,
+      "separation": 0.011981223621507636,
+      "mean_p_real": 0.14485395476765875,
+      "mean_p_fake": 0.15683517838916639
+    },
+    {
+      "checkpoint": "model_aug_loo_dfdc.pth",
+      "auc": 0.4801001651659651,
+      "separation": -0.056634358245961,
+      "mean_p_real": 0.21604695067788562,
+      "mean_p_fake": 0.15941259243192463
+    },
+    {
+      "checkpoint": "model_aug_loo_ffpp.pth",
+      "auc": 0.559646225158506,
+      "separation": -0.030381266653102673,
+      "mean_p_real": 0.19905009669979123,
+      "mean_p_fake": 0.16866883004668856
+    },
+    {
+      "checkpoint": "model_celebdf.pth",
+      "auc": 0.5709947253449837,
+      "separation": -0.04260833637557759,
+      "mean_p_real": 0.1830780897697393,
+      "mean_p_fake": 0.1404697533941617
+    },
+    {
+      "checkpoint": "model_dfdc.pth",
+      "auc": 0.3593958122435931,
+      "separation": -0.15108162208195142,
+      "mean_p_real": 0.9180863651916058,
+      "mean_p_fake": 0.7670047431096544
+    },
+    {
+      "checkpoint": "model_ffpp.pth",
+      "auc": 0.32865363098726624,
+      "separation": -0.018998115602200924,
+      "mean_p_real": 0.0773264743985921,
+      "mean_p_fake": 0.05832835879639117
+    },
+    {
+      "checkpoint": "model_loo_celebdf.pth",
+      "auc": 0.4275667323778571,
+      "separation": 0.04971003097339269,
+      "mean_p_real": 0.14707332196896963,
+      "mean_p_fake": 0.19678335294236232
+    },
+    {
+      "checkpoint": "model_loo_dfdc.pth",
+      "auc": 0.4965102029942991,
+      "separation": -0.04999005533482906,
+      "mean_p_real": 0.1860450593224407,
+      "mean_p_fake": 0.13605500398761164
+    },
+    {
+      "checkpoint": "model_loo_ffpp.pth",
+      "auc": 0.5863658159731472,
+      "separation": -0.018234578797416967,
+      "mean_p_real": 0.17930057927639814,
+      "mean_p_fake": 0.16106600047898118
+    },
+    {
+      "checkpoint": "resnet_params.pth",
+      "auc": null,
+      "note": "load failed: RuntimeError"
+    }
+  ]
+}

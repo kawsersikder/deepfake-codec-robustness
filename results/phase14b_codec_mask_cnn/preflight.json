@@ -1,0 +1,258 @@
+{
+  "bench": {
+    "dual": {
+      "train_img_s": 62.608076694559585,
+      "eval_img_s": 88.42966864945754
+    },
+    "rgb": {
+      "train_img_s": 196.43104626485857,
+      "eval_img_s": 701.9504306451853
+    }
+  },
+  "held": "dfdc",
+  "plan": [
+    {
+      "arm": "dual_original",
+      "fold": "dfdc",
+      "train_h": 0.0,
+      "eval_h": 0.09156566719699365,
+      "hours": 0.09156566719699365,
+      "action": "run"
+    },
+    {
+      "arm": "dual_original",
+      "fold": "ffpp",
+      "train_h": 0.0,
+      "eval_h": 0.32697355007215473,
+      "hours": 0.32697355007215473,
+      "action": "run"
+    },
+    {
+      "arm": "dual_original",
+      "fold": "celebdf",
+      "train_h": 0.0,
+      "eval_h": 0.65765379450869,
+      "hours": 0.65765379450869,
+      "action": "run"
+    },
+    {
+      "arm": "rgb_original",
+      "fold": "dfdc",
+      "train_h": 0.0,
+      "eval_h": 0.00693543749073377,
+      "hours": 0.00693543749073377,
+      "action": "run"
+    },
+    {
+      "arm": "rgb_original",
+      "fold": "ffpp",
+      "train_h": 0.0,
+      "eval_h": 0.02911837059347771,
+      "hours": 0.02911837059347771,
+      "action": "run"
+    },
+    {
+      "arm": "rgb_original",
+      "fold": "celebdf",
+      "train_h": 0.0,
+      "eval_h": 0.07077650365789827,
+      "hours": 0.07077650365789827,
+      "action": "run"
+    },
+    {
+      "arm": "control",
+      "fold": "dfdc",
+      "train_h": 0.6301633523846208,
+      "eval_h": 0.05505316719699365,
+      "hours": 0.6852165195816144,
+      "action": "run"
+    },
+    {
+      "arm": "control",
+      "fold": "ffpp",
+      "train_h": 0.5951951989419111,
+      "eval_h": 0.2311402167388214,
+      "hours": 0.8263354156807324,
+      "action": "run"
+    },
+    {
+      "arm": "control",
+      "fold": "celebdf",
+      "train_h": 0.510935676312654,
+      "eval_h": 0.5618204611753568,
+      "hours": 1.0727561374880108,
+      "action": "run"
+    },
+    {
+      "arm": "qmask",
+      "fold": "dfdc",
+      "train_h": 0.6301633523846208,
+      "eval_h": 0.05505316719699365,
+      "hours": 0.6852165195816144,
+      "action": "run"
+    },
+    {
+      "arm": "qmask",
+      "fold": "ffpp",
+      "train_h": 0.5951951989419111,
+      "eval_h": 0.2311402167388214,
+      "hours": 0.8263354156807324,
+      "action": "run"
+    },
+    {
+      "arm": "qmask",
+      "fold": "celebdf",
+      "train_h": 0.510935676312654,
+      "eval_h": 0.5618204611753568,
+      "hours": 1.0727561374880108,
+      "action": "run"
+    },
+    {
+      "arm": "randmask",
+      "fold": "dfdc",
+      "train_h": 0.6301633523846208,
+      "eval_h": 0.05505316719699365,
+      "hours": 0.6852165195816144,
+      "action": "run"
+    },
+    {
+      "arm": "randmask",
+      "fold": "ffpp",
+      "train_h": 0.5951951989419111,
+      "eval_h": 0.2311402167388214,
+      "hours": 0.8263354156807324,
+      "action": "run"
+    },
+    {
+      "arm": "randmask",
+      "fold": "celebdf",
+      "train_h": 0.510935676312654,
+      "eval_h": 0.5618204611753568,
+      "hours": 1.0727561374880108,
+      "action": "run"
+    },
+    {
+      "arm": "invmask",
+      "fold": "dfdc",
+      "train_h": 0.6301633523846208,
+      "eval_h": 0.05505316719699365,
+      "hours": 0.6852165195816144,
+      "action": "run"
+    },
+    {
+      "arm": "invmask",
+      "fold": "ffpp",
+      "train_h": 0.5951951989419111,
+      "eval_h": 0.2311402167388214,
+      "hours": 0.8263354156807324,
+      "action": "SKIP (time budget)"
+    },
+    {
+      "arm": "invmask",
+      "fold": "celebdf",
+      "train_h": 0.510935676312654,
+      "eval_h": 0.5618204611753568,
+      "hours": 1.0727561374880108,
+      "action": "SKIP (time budget)"
+    },
+    {
+      "arm": "realjpeg",
+      "fold": "dfdc",
+      "train_h": 0.6301633523846208,
+      "eval_h": 0.05505316719699365,
+      "hours": 0.6852165195816144,
+      "action": "run"
+    },
+    {
+      "arm": "realjpeg",
+      "fold": "ffpp",
+      "train_h": 0.5951951989419111,
+      "eval_h": 0.2311402167388214,
+      "hours": 0.8263354156807324,
+      "action": "SKIP (time budget)"
+    },
+    {
+      "arm": "realjpeg",
+      "fold": "celebdf",
+      "train_h": 0.510935676312654,
+      "eval_h": 0.5618204611753568,
+      "hours": 1.0727561374880108,
+      "action": "SKIP (time budget)"
+    },
+    {
+      "arm": "realjpeg_qmask",
+      "fold": "dfdc",
+      "train_h": 0.6301633523846208,
+      "eval_h": 0.05505316719699365,
+      "hours": 0.6852165195816144,
+      "action": "SKIP (time budget)"
+    },
+    {
+      "arm": "realjpeg_qmask",
+      "fold": "ffpp",
+      "train_h": 0.5951951989419111,
+      "eval_h": 0.2311402167388214,
+      "hours": 0.8263354156807324,
+      "action": "SKIP (time budget)"
+    },
+    {
+      "arm": "realjpeg_qmask",
+      "fold": "celebdf",
+      "train_h": 0.510935676312654,
+      "eval_h": 0.5618204611753568,
+      "hours": 1.0727561374880108,
+      "action": "SKIP (time budget)"
+    },
+    {
+      "arm": "rgb_control",
+      "fold": "dfdc",
+      "train_h": 0.1678985101255271,
+      "eval_h": 0.00693543749073377,
+      "hours": 0.17483394761626087,
+      "action": "SKIP (time budget)"
+    },
+    {
+      "arm": "rgb_control",
+      "fold": "ffpp",
+      "train_h": 0.1634933241077907,
+      "eval_h": 0.02911837059347771,
+      "hours": 0.19261169470126838,
+      "action": "SKIP (time budget)"
+    },
+    {
+      "arm": "rgb_control",
+      "fold": "celebdf",
+      "train_h": 0.1528785551136066,
+      "eval_h": 0.07077650365789827,
+      "hours": 0.22365505877150488,
+      "action": "SKIP (time budget)"
+    },
+    {
+      "arm": "rgb_realjpeg",
+      "fold": "dfdc",
+      "train_h": 0.1678985101255271,
+      "eval_h": 0.00693543749073377,
+      "hours": 0.17483394761626087,
+      "action": "SKIP (time budget)"
+    },
+    {
+      "arm": "rgb_realjpeg",
+      "fold": "ffpp",
+      "train_h": 0.1634933241077907,
+      "eval_h": 0.02911837059347771,
+      "hours": 0.19261169470126838,
+      "action": "SKIP (time budget)"
+    },
+    {
+      "arm": "rgb_realjpeg",
+      "fold": "celebdf",
+      "train_h": 0.1528785551136066,
+      "eval_h": 0.07077650365789827,
+      "hours": 0.22365505877150488,
+      "action": "SKIP (time budget)"
+    }
+  ],
+  "projected_finish_h": 18.443246263506122,
+  "advice": "Over the limit. Drop these arms from ARMS (lowest priority first): ['rgb_realjpeg', 'rgb_control', 'realjpeg_qmask', 'realjpeg', 'invmask'] (projected 9.51 h), or run them in a second session with this output attached (finished arms are reused). Without changes, arms marked SKIP are skipped.",
+  "ffmpeg": "/usr/bin/ffmpeg (ffmpeg version 4.4.2-0ubuntu0.22.04.1 Copyright (c) 2000-2021 the FFmpeg developers)"
+}

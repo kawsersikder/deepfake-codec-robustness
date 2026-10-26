@@ -1,0 +1,294 @@
+{
+  "backbone": "eva02_l14",
+  "timm_id": "eva02_large_patch14_224.mim_m38m",
+  "note": "EVA-02-L/14, masked image modelling on Merged-38M, 304M params",
+  "torch": "2.10.0+cu128",
+  "timm": "1.0.26",
+  "gpus": [
+    "Tesla T4",
+    "Tesla T4"
+  ],
+  "wall_hours": 3.023525990115272,
+  "split_origin": "original algorithm replay; assumes unchanged dataset snapshot",
+  "config": {
+    "backbone": "eva02_l14",
+    "smoke": false,
+    "seed": 42,
+    "device": "cuda:0",
+    "amp": true,
+    "multi_gpu": true,
+    "img_size": 224,
+    "train_per_source": 9000,
+    "smoke_videos": 12,
+    "eval_frames_per_video": 8,
+    "probe_C": [
+      0.0001,
+      0.001,
+      0.01,
+      0.1,
+      1.0
+    ],
+    "lora_rank": 16,
+    "lora_alpha": 32,
+    "lora_dropout": 0.05,
+    "lora_targets": "qv",
+    "epochs": 4,
+    "batch_size": 32,
+    "eval_batch_size": 64,
+    "workers": 4,
+    "lr_lora": 0.0002,
+    "lr_head": 0.0002,
+    "weight_decay": 0.0001,
+    "warmup_frac": 0.05,
+    "grad_clip": 1.0,
+    "bootstrap": 1000,
+    "time_limit_h": 11.0,
+    "log_every": 100,
+    "output_dir": "/kaggle/working/phase13_eva02_l14"
+  },
+  "preflight": {
+    "dim": 1024,
+    "audit": {
+      "total_params": 304842689,
+      "lora_params": 1572864,
+      "head_params": 1025,
+      "trainable_params": 1573889,
+      "trainable_pct": 0.516295471990145
+    },
+    "bench": {
+      "train_img_s": 35.9863505874894,
+      "eval_img_s": 72.80477269346282
+    },
+    "grad_ckpt": false,
+    "peak_gib": 6.565917491912842,
+    "normalisation": {
+      "mean": [
+        0.48145466,
+        0.4578275,
+        0.40821073
+      ],
+      "std": [
+        0.26862954,
+        0.26130258,
+        0.27577711
+      ]
+    },
+    "pooling": "avg",
+    "plan": [
+      {
+        "step": "feature bank (frozen probe)",
+        "frames": 82860,
+        "hours": 0.3635636193538084
+      },
+      {
+        "step": "LoRA, dfdc held out",
+        "frames": 18000,
+        "hours": 0.8601520966878936
+      },
+      {
+        "step": "LoRA, ffpp held out",
+        "frames": 18000,
+        "hours": 0.8744954405409904
+      },
+      {
+        "step": "LoRA, celebdf held out",
+        "frames": 18000,
+        "hours": 0.9074250201119575
+      }
+    ]
+  },
+  "lora": {
+    "dfdc": {
+      "status": "complete",
+      "signature": {
+        "backbone": "eva02_l14",
+        "seed": 42,
+        "smoke": false,
+        "train_per_source": 9000,
+        "eval_frames_per_video": 8,
+        "lora_rank": 16,
+        "lora_alpha": 32,
+        "lora_dropout": 0.05,
+        "lora_targets": "qv",
+        "epochs": 4,
+        "batch_size": 32,
+        "lr_lora": 0.0002,
+        "lr_head": 0.0002,
+        "weight_decay": 0.0001
+      },
+      "held_out": "dfdc",
+      "best_epoch": 4,
+      "val_auc": 0.9964170535920536,
+      "test_auc": 0.8297238999137186,
+      "history": [
+        {
+          "epoch": 0,
+          "train_loss": NaN,
+          "val_auc": 0.958436697996073,
+          "sec": 0.0
+        },
+        {
+          "epoch": 1,
+          "train_loss": 0.1706413870140433,
+          "val_auc": 0.9941012134730884,
+          "sec": 695.0
+        },
+        {
+          "epoch": 2,
+          "train_loss": 0.08925662194113529,
+          "val_auc": 0.9957720908408407,
+          "sec": 689.1
+        },
+        {
+          "epoch": 3,
+          "train_loss": 0.05477536299358981,
+          "val_auc": 0.9962510142353892,
+          "sec": 684.8
+        },
+        {
+          "epoch": 4,
+          "train_loss": 0.039316164955820555,
+          "val_auc": 0.9964170535920536,
+          "sec": 683.5
+        }
+      ],
+      "audit": {
+        "total_params": 304842689,
+        "lora_params": 1572864,
+        "head_params": 1025,
+        "trainable_params": 1573889,
+        "trainable_pct": 0.516295471990145
+      },
+      "grad_ckpt": false,
+      "train_hours": 0.7755282668272654
+    },
+    "ffpp": {
+      "status": "complete",
+      "signature": {
+        "backbone": "eva02_l14",
+        "seed": 42,
+        "smoke": false,
+        "train_per_source": 9000,
+        "eval_frames_per_video": 8,
+        "lora_rank": 16,
+        "lora_alpha": 32,
+        "lora_dropout": 0.05,
+        "lora_targets": "qv",
+        "epochs": 4,
+        "batch_size": 32,
+        "lr_lora": 0.0002,
+        "lr_head": 0.0002,
+        "weight_decay": 0.0001
+      },
+      "held_out": "ffpp",
+      "best_epoch": 3,
+      "val_auc": 0.9845664167650774,
+      "test_auc": 0.957723,
+      "history": [
+        {
+          "epoch": 0,
+          "train_loss": NaN,
+          "val_auc": 0.9348131398912649,
+          "sec": 0.0
+        },
+        {
+          "epoch": 1,
+          "train_loss": 0.2083700633147115,
+          "val_auc": 0.9659444079086936,
+          "sec": 674.8
+        },
+        {
+          "epoch": 2,
+          "train_loss": 0.1021381101634824,
+          "val_auc": 0.9805640946823981,
+          "sec": 668.7
+        },
+        {
+          "epoch": 3,
+          "train_loss": 0.061887763772351216,
+          "val_auc": 0.9845664167650774,
+          "sec": 665.1
+        },
+        {
+          "epoch": 4,
+          "train_loss": 0.042105599609369354,
+          "val_auc": 0.980303326285469,
+          "sec": 663.2
+        }
+      ],
+      "audit": {
+        "total_params": 304842689,
+        "lora_params": 1572864,
+        "head_params": 1025,
+        "trainable_params": 1573889,
+        "trainable_pct": 0.516295471990145
+      },
+      "grad_ckpt": false,
+      "train_hours": 0.7984607366058561
+    },
+    "celebdf": {
+      "status": "complete",
+      "signature": {
+        "backbone": "eva02_l14",
+        "seed": 42,
+        "smoke": false,
+        "train_per_source": 9000,
+        "eval_frames_per_video": 8,
+        "lora_rank": 16,
+        "lora_alpha": 32,
+        "lora_dropout": 0.05,
+        "lora_targets": "qv",
+        "epochs": 4,
+        "batch_size": 32,
+        "lr_lora": 0.0002,
+        "lr_head": 0.0002,
+        "weight_decay": 0.0001
+      },
+      "held_out": "celebdf",
+      "best_epoch": 4,
+      "val_auc": 0.976214058956916,
+      "test_auc": 0.8801271715481389,
+      "history": [
+        {
+          "epoch": 0,
+          "train_loss": NaN,
+          "val_auc": 0.9191777777777778,
+          "sec": 0.0
+        },
+        {
+          "epoch": 1,
+          "train_loss": 0.12180504597121936,
+          "val_auc": 0.9719682539682539,
+          "sec": 613.3
+        },
+        {
+          "epoch": 2,
+          "train_loss": 0.05488725515617741,
+          "val_auc": 0.9702340136054421,
+          "sec": 606.9
+        },
+        {
+          "epoch": 3,
+          "train_loss": 0.030018099636921588,
+          "val_auc": 0.9714789115646258,
+          "sec": 604.3
+        },
+        {
+          "epoch": 4,
+          "train_loss": 0.019471841713447673,
+          "val_auc": 0.976214058956916,
+          "sec": 603.7
+        }
+      ],
+      "audit": {
+        "total_params": 304842689,
+        "lora_params": 1572864,
+        "head_params": 1025,
+        "trainable_params": 1573889,
+        "trainable_pct": 0.516295471990145
+      },
+      "grad_ckpt": false,
+      "train_hours": 0.8381456962558959
+    }
+  }
+}

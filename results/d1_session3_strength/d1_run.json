@@ -1,0 +1,15 @@
+{
+  "smoke": false,
+  "arms": [
+    "plain",
+    "qmask_highE",
+    "randmask_lowE",
+    "invmask_highE"
+  ],
+  "folds": [
+    "dfdc",
+    "ffpp",
+    "celebdf"
+  ],
+  "started_at_hours": 0.15490132490793865
+}

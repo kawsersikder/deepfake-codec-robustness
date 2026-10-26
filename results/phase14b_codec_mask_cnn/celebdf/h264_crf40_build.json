@@ -1,0 +1,13 @@
+{
+  "held": "celebdf",
+  "crf": 40,
+  "videos": 1000,
+  "frames": 7522,
+  "seconds": 99.97000670433044,
+  "ffmpeg": "/usr/bin/ffmpeg (ffmpeg version 4.4.2-0ubuntu0.22.04.1 Copyright (c) 2000-2021 the FFmpeg developers)",
+  "preset": "medium",
+  "fps": 25,
+  "size": 224,
+  "pix_fmt": "yuv420p",
+  "threads_per_clip": 1
+}

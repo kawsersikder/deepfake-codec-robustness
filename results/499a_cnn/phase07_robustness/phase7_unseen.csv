@@ -1,0 +1,43 @@
+dataset,model,condition,group,auc,n_videos
+celebdf,baseline,clean,reference,0.7579,200
+celebdf,baseline,JPEG q10,seen,0.5342,200
+celebdf,baseline,Blur s3,seen,0.5947,200
+celebdf,baseline,Downscale 1/4,seen,0.6157,200
+celebdf,baseline,WebP q10,UNSEEN,0.6557000000000001,200
+celebdf,baseline,Noise s25,UNSEEN,0.5609500000000001,200
+celebdf,baseline,H.264 crf40,UNSEEN,0.607,200
+celebdf,heavy-aug,clean,reference,0.7539,200
+celebdf,heavy-aug,JPEG q10,seen,0.6335999999999999,200
+celebdf,heavy-aug,Blur s3,seen,0.6482,200
+celebdf,heavy-aug,Downscale 1/4,seen,0.6366999999999999,200
+celebdf,heavy-aug,WebP q10,UNSEEN,0.6642,200
+celebdf,heavy-aug,Noise s25,UNSEEN,0.59305,200
+celebdf,heavy-aug,H.264 crf40,UNSEEN,0.6058999999999999,200
+ffpp,baseline,clean,reference,0.8785999999999998,200
+ffpp,baseline,JPEG q10,seen,0.768,200
+ffpp,baseline,Blur s3,seen,0.7951,200
+ffpp,baseline,Downscale 1/4,seen,0.8448,200
+ffpp,baseline,WebP q10,UNSEEN,0.7938999999999999,200
+ffpp,baseline,Noise s25,UNSEEN,0.4537,200
+ffpp,baseline,H.264 crf40,UNSEEN,0.772,200
+ffpp,heavy-aug,clean,reference,0.8868999999999999,200
+ffpp,heavy-aug,JPEG q10,seen,0.8067000000000001,200
+ffpp,heavy-aug,Blur s3,seen,0.7472,200
+ffpp,heavy-aug,Downscale 1/4,seen,0.7984000000000001,200
+ffpp,heavy-aug,WebP q10,UNSEEN,0.803,200
+ffpp,heavy-aug,Noise s25,UNSEEN,0.48255,200
+ffpp,heavy-aug,H.264 crf40,UNSEEN,0.7847,200
+dfdc,baseline,clean,reference,0.7948717948717948,58
+dfdc,baseline,JPEG q10,seen,0.7145299145299145,58
+dfdc,baseline,Blur s3,seen,0.7145299145299144,58
+dfdc,baseline,Downscale 1/4,seen,0.7230769230769232,58
+dfdc,baseline,WebP q10,UNSEEN,0.6085470085470086,58
+dfdc,baseline,Noise s25,UNSEEN,0.4256410256410257,58
+dfdc,baseline,H.264 crf40,UNSEEN,0.6752136752136753,58
+dfdc,heavy-aug,clean,reference,0.7863247863247863,58
+dfdc,heavy-aug,JPEG q10,seen,0.7384615384615385,58
+dfdc,heavy-aug,Blur s3,seen,0.629059829059829,58
+dfdc,heavy-aug,Downscale 1/4,seen,0.6871794871794872,58
+dfdc,heavy-aug,WebP q10,UNSEEN,0.676923076923077,58
+dfdc,heavy-aug,Noise s25,UNSEEN,0.5205128205128204,58
+dfdc,heavy-aug,H.264 crf40,UNSEEN,0.6136752136752137,58

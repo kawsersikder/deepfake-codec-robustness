@@ -1,0 +1,20 @@
+{
+  "smoke": false,
+  "arms": [
+    "plain",
+    "realh264",
+    "qmask",
+    "randmask",
+    "realjpeg",
+    "randmask_realh264",
+    "qmask_realh264",
+    "invmask",
+    "noaug"
+  ],
+  "folds": [
+    "dfdc",
+    "ffpp",
+    "celebdf"
+  ],
+  "started_at_hours": 0.18441334115134345
+}

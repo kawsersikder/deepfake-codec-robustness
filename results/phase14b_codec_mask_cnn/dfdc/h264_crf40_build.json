@@ -1,0 +1,13 @@
+{
+  "held": "dfdc",
+  "crf": 40,
+  "videos": 381,
+  "frames": 3048,
+  "seconds": 36.436569690704346,
+  "ffmpeg": "/usr/bin/ffmpeg (ffmpeg version 4.4.2-0ubuntu0.22.04.1 Copyright (c) 2000-2021 the FFmpeg developers)",
+  "preset": "medium",
+  "fps": 25,
+  "size": 224,
+  "pix_fmt": "yuv420p",
+  "threads_per_clip": 1
+}

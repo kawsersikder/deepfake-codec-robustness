@@ -1,0 +1,99 @@
+{
+  "status": "complete",
+  "arm": "realjpeg",
+  "fold": "celebdf",
+  "ops": [
+    "jpeg"
+  ],
+  "training": {
+    "status": "complete",
+    "best_epoch": 3,
+    "source_val_auc": 0.9749691609977325,
+    "full_test_auc": 0.8613458696276195,
+    "train_hours": 0.8079224291774961,
+    "wall_seconds": 2952.3060817718506
+  },
+  "auc": {
+    "clean": 0.8564760000000001,
+    "resize224": 0.857316,
+    "jpeg50": 0.8090999999999999,
+    "jpeg20": 0.7463759999999999,
+    "h264_crf23": 0.8201,
+    "h264_crf40": 0.698276
+  },
+  "seconds": 3503.5454909801483,
+  "train_seconds": 2952.3060817718506,
+  "store_seconds": 4.291534423828125e-06,
+  "eval_seconds": 551.2393269538879,
+  "projected": {
+    "train_img_s": 35.9888208067635,
+    "train_raw_h": 0.7890242510740819,
+    "train_h": 0.9486464886512764,
+    "eval_raw_h": 0.1721935768963562,
+    "eval_h": 0.17734410305035977,
+    "store_h": 0.0,
+    "hours": 1.1559905917016362
+  },
+  "finished_at_hours": 9.063856227397919,
+  "signature": {
+    "arm": "realjpeg",
+    "held": "celebdf",
+    "ops": [
+      "jpeg"
+    ],
+    "aug": {
+      "aug_jpeg_p": 0.5,
+      "aug_jpeg_q": [
+        20,
+        95
+      ],
+      "jpeg_subsampling": 2
+    },
+    "evaluation": {
+      "smoke": false,
+      "smoke_videos": 12,
+      "eval_frames_per_video": 8,
+      "jpeg": [
+        50,
+        20
+      ],
+      "jpeg_subsampling": 2,
+      "h264_crf": [
+        23,
+        40
+      ],
+      "h264_videos_per_class": 500,
+      "h264_seed": 42,
+      "h264_size": 224,
+      "h264_preset": "medium",
+      "h264_fps": 25
+    },
+    "training": {
+      "seed": 42,
+      "data_seed": 42,
+      "smoke": false,
+      "smoke_videos": 12,
+      "train_per_source": 9000,
+      "eval_frames_per_video": 8,
+      "probe_C": [
+        0.0001,
+        0.001,
+        0.01,
+        0.1,
+        1.0
+      ],
+      "lora_rank": 16,
+      "lora_alpha": 32,
+      "lora_dropout": 0.05,
+      "lora_targets": "qv",
+      "epochs": 4,
+      "batch_size": 32,
+      "lr_lora": 0.0002,
+      "lr_head": 0.0002,
+      "weight_decay": 0.0001,
+      "warmup_frac": 0.05,
+      "grad_clip": 1.0,
+      "amp": true
+    }
+  }
+}

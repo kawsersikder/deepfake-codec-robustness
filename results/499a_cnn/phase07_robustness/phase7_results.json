@@ -1,0 +1,640 @@
+{
+  "auc": [
+    {
+      "dataset": "celebdf",
+      "model": "baseline",
+      "condition": "clean",
+      "group": "reference",
+      "auc": 0.7579,
+      "n_videos": 200
+    },
+    {
+      "dataset": "celebdf",
+      "model": "baseline",
+      "condition": "JPEG q10",
+      "group": "seen",
+      "auc": 0.5342,
+      "n_videos": 200
+    },
+    {
+      "dataset": "celebdf",
+      "model": "baseline",
+      "condition": "Blur s3",
+      "group": "seen",
+      "auc": 0.5947,
+      "n_videos": 200
+    },
+    {
+      "dataset": "celebdf",
+      "model": "baseline",
+      "condition": "Downscale 1/4",
+      "group": "seen",
+      "auc": 0.6157,
+      "n_videos": 200
+    },
+    {
+      "dataset": "celebdf",
+      "model": "baseline",
+      "condition": "WebP q10",
+      "group": "UNSEEN",
+      "auc": 0.6557000000000001,
+      "n_videos": 200
+    },
+    {
+      "dataset": "celebdf",
+      "model": "baseline",
+      "condition": "Noise s25",
+      "group": "UNSEEN",
+      "auc": 0.5609500000000001,
+      "n_videos": 200
+    },
+    {
+      "dataset": "celebdf",
+      "model": "baseline",
+      "condition": "H.264 crf40",
+      "group": "UNSEEN",
+      "auc": 0.607,
+      "n_videos": 200
+    },
+    {
+      "dataset": "celebdf",
+      "model": "heavy-aug",
+      "condition": "clean",
+      "group": "reference",
+      "auc": 0.7539,
+      "n_videos": 200
+    },
+    {
+      "dataset": "celebdf",
+      "model": "heavy-aug",
+      "condition": "JPEG q10",
+      "group": "seen",
+      "auc": 0.6335999999999999,
+      "n_videos": 200
+    },
+    {
+      "dataset": "celebdf",
+      "model": "heavy-aug",
+      "condition": "Blur s3",
+      "group": "seen",
+      "auc": 0.6482,
+      "n_videos": 200
+    },
+    {
+      "dataset": "celebdf",
+      "model": "heavy-aug",
+      "condition": "Downscale 1/4",
+      "group": "seen",
+      "auc": 0.6366999999999999,
+      "n_videos": 200
+    },
+    {
+      "dataset": "celebdf",
+      "model": "heavy-aug",
+      "condition": "WebP q10",
+      "group": "UNSEEN",
+      "auc": 0.6642,
+      "n_videos": 200
+    },
+    {
+      "dataset": "celebdf",
+      "model": "heavy-aug",
+      "condition": "Noise s25",
+      "group": "UNSEEN",
+      "auc": 0.59305,
+      "n_videos": 200
+    },
+    {
+      "dataset": "celebdf",
+      "model": "heavy-aug",
+      "condition": "H.264 crf40",
+      "group": "UNSEEN",
+      "auc": 0.6058999999999999,
+      "n_videos": 200
+    },
+    {
+      "dataset": "ffpp",
+      "model": "baseline",
+      "condition": "clean",
+      "group": "reference",
+      "auc": 0.8785999999999998,
+      "n_videos": 200
+    },
+    {
+      "dataset": "ffpp",
+      "model": "baseline",
+      "condition": "JPEG q10",
+      "group": "seen",
+      "auc": 0.768,
+      "n_videos": 200
+    },
+    {
+      "dataset": "ffpp",
+      "model": "baseline",
+      "condition": "Blur s3",
+      "group": "seen",
+      "auc": 0.7951,
+      "n_videos": 200
+    },
+    {
+      "dataset": "ffpp",
+      "model": "baseline",
+      "condition": "Downscale 1/4",
+      "group": "seen",
+      "auc": 0.8448,
+      "n_videos": 200
+    },
+    {
+      "dataset": "ffpp",
+      "model": "baseline",
+      "condition": "WebP q10",
+      "group": "UNSEEN",
+      "auc": 0.7938999999999999,
+      "n_videos": 200
+    },
+    {
+      "dataset": "ffpp",
+      "model": "baseline",
+      "condition": "Noise s25",
+      "group": "UNSEEN",
+      "auc": 0.4537,
+      "n_videos": 200
+    },
+    {
+      "dataset": "ffpp",
+      "model": "baseline",
+      "condition": "H.264 crf40",
+      "group": "UNSEEN",
+      "auc": 0.772,
+      "n_videos": 200
+    },
+    {
+      "dataset": "ffpp",
+      "model": "heavy-aug",
+      "condition": "clean",
+      "group": "reference",
+      "auc": 0.8868999999999999,
+      "n_videos": 200
+    },
+    {
+      "dataset": "ffpp",
+      "model": "heavy-aug",
+      "condition": "JPEG q10",
+      "group": "seen",
+      "auc": 0.8067000000000001,
+      "n_videos": 200
+    },
+    {
+      "dataset": "ffpp",
+      "model": "heavy-aug",
+      "condition": "Blur s3",
+      "group": "seen",
+      "auc": 0.7472,
+      "n_videos": 200
+    },
+    {
+      "dataset": "ffpp",
+      "model": "heavy-aug",
+      "condition": "Downscale 1/4",
+      "group": "seen",
+      "auc": 0.7984000000000001,
+      "n_videos": 200
+    },
+    {
+      "dataset": "ffpp",
+      "model": "heavy-aug",
+      "condition": "WebP q10",
+      "group": "UNSEEN",
+      "auc": 0.803,
+      "n_videos": 200
+    },
+    {
+      "dataset": "ffpp",
+      "model": "heavy-aug",
+      "condition": "Noise s25",
+      "group": "UNSEEN",
+      "auc": 0.48255,
+      "n_videos": 200
+    },
+    {
+      "dataset": "ffpp",
+      "model": "heavy-aug",
+      "condition": "H.264 crf40",
+      "group": "UNSEEN",
+      "auc": 0.7847,
+      "n_videos": 200
+    },
+    {
+      "dataset": "dfdc",
+      "model": "baseline",
+      "condition": "clean",
+      "group": "reference",
+      "auc": 0.7948717948717948,
+      "n_videos": 58
+    },
+    {
+      "dataset": "dfdc",
+      "model": "baseline",
+      "condition": "JPEG q10",
+      "group": "seen",
+      "auc": 0.7145299145299145,
+      "n_videos": 58
+    },
+    {
+      "dataset": "dfdc",
+      "model": "baseline",
+      "condition": "Blur s3",
+      "group": "seen",
+      "auc": 0.7145299145299144,
+      "n_videos": 58
+    },
+    {
+      "dataset": "dfdc",
+      "model": "baseline",
+      "condition": "Downscale 1/4",
+      "group": "seen",
+      "auc": 0.7230769230769232,
+      "n_videos": 58
+    },
+    {
+      "dataset": "dfdc",
+      "model": "baseline",
+      "condition": "WebP q10",
+      "group": "UNSEEN",
+      "auc": 0.6085470085470086,
+      "n_videos": 58
+    },
+    {
+      "dataset": "dfdc",
+      "model": "baseline",
+      "condition": "Noise s25",
+      "group": "UNSEEN",
+      "auc": 0.4256410256410257,
+      "n_videos": 58
+    },
+    {
+      "dataset": "dfdc",
+      "model": "baseline",
+      "condition": "H.264 crf40",
+      "group": "UNSEEN",
+      "auc": 0.6752136752136753,
+      "n_videos": 58
+    },
+    {
+      "dataset": "dfdc",
+      "model": "heavy-aug",
+      "condition": "clean",
+      "group": "reference",
+      "auc": 0.7863247863247863,
+      "n_videos": 58
+    },
+    {
+      "dataset": "dfdc",
+      "model": "heavy-aug",
+      "condition": "JPEG q10",
+      "group": "seen",
+      "auc": 0.7384615384615385,
+      "n_videos": 58
+    },
+    {
+      "dataset": "dfdc",
+      "model": "heavy-aug",
+      "condition": "Blur s3",
+      "group": "seen",
+      "auc": 0.629059829059829,
+      "n_videos": 58
+    },
+    {
+      "dataset": "dfdc",
+      "model": "heavy-aug",
+      "condition": "Downscale 1/4",
+      "group": "seen",
+      "auc": 0.6871794871794872,
+      "n_videos": 58
+    },
+    {
+      "dataset": "dfdc",
+      "model": "heavy-aug",
+      "condition": "WebP q10",
+      "group": "UNSEEN",
+      "auc": 0.676923076923077,
+      "n_videos": 58
+    },
+    {
+      "dataset": "dfdc",
+      "model": "heavy-aug",
+      "condition": "Noise s25",
+      "group": "UNSEEN",
+      "auc": 0.5205128205128204,
+      "n_videos": 58
+    },
+    {
+      "dataset": "dfdc",
+      "model": "heavy-aug",
+      "condition": "H.264 crf40",
+      "group": "UNSEEN",
+      "auc": 0.6136752136752137,
+      "n_videos": 58
+    }
+  ],
+  "ci": [
+    {
+      "dataset": "celebdf",
+      "condition": "JPEG q10",
+      "group": "seen",
+      "n_videos": 200,
+      "base_retained": 0.1251566990873129,
+      "aug_retained": 0.5164456812733583,
+      "d_retained": 0.3912889821860454,
+      "d_ret_lo": 0.12010289898291046,
+      "d_ret_hi": 0.7054696180616326,
+      "d_auc": 0.09783412872516177,
+      "d_auc_lo": 0.027253293675413258,
+      "d_auc_hi": 0.1718571714543089,
+      "significant": true,
+      "p_gt0": 0.996
+    },
+    {
+      "dataset": "celebdf",
+      "condition": "Blur s3",
+      "group": "seen",
+      "n_videos": 200,
+      "base_retained": 0.36463883247203616,
+      "aug_retained": 0.5777906887051376,
+      "d_retained": 0.21315185623310154,
+      "d_ret_lo": 0.009163200284383327,
+      "d_ret_hi": 0.44762572136785844,
+      "d_auc": 0.05174270430503361,
+      "d_auc_lo": -0.008003497135966242,
+      "d_auc_hi": 0.11400867974053808,
+      "significant": true,
+      "p_gt0": 0.978
+    },
+    {
+      "dataset": "celebdf",
+      "condition": "Downscale 1/4",
+      "group": "seen",
+      "n_videos": 200,
+      "base_retained": 0.4429826034831423,
+      "aug_retained": 0.5294981280560718,
+      "d_retained": 0.08651552457292946,
+      "d_ret_lo": -0.10226673448892887,
+      "d_ret_hi": 0.2842066258474063,
+      "d_auc": 0.019736156753777167,
+      "d_auc_lo": -0.038964693592982096,
+      "d_auc_hi": 0.07664684099251896,
+      "significant": false,
+      "p_gt0": 0.8265
+    },
+    {
+      "dataset": "celebdf",
+      "condition": "WebP q10",
+      "group": "UNSEEN",
+      "n_videos": 200,
+      "base_retained": 0.6056129045439872,
+      "aug_retained": 0.6430685722457328,
+      "d_retained": 0.03745566770174559,
+      "d_ret_lo": -0.16631338290400724,
+      "d_ret_hi": 0.2352797354467139,
+      "d_auc": 0.007299890810381101,
+      "d_auc_lo": -0.04718940774277855,
+      "d_auc_hi": 0.0649217126325006,
+      "significant": false,
+      "p_gt0": 0.6415
+    },
+    {
+      "dataset": "celebdf",
+      "condition": "Noise s25",
+      "group": "UNSEEN",
+      "n_videos": 200,
+      "base_retained": 0.2358038340794368,
+      "aug_retained": 0.3760914917159345,
+      "d_retained": 0.14028765763649761,
+      "d_ret_lo": -0.2812220679395433,
+      "d_ret_hi": 0.5963438638960581,
+      "d_auc": 0.03304069130389589,
+      "d_auc_lo": -0.07401515430045608,
+      "d_auc_hi": 0.14071206331159433,
+      "significant": false,
+      "p_gt0": 0.733
+    },
+    {
+      "dataset": "celebdf",
+      "condition": "H.264 crf40",
+      "group": "UNSEEN",
+      "n_videos": 200,
+      "base_retained": 0.41744965019002095,
+      "aug_retained": 0.4132558606503354,
+      "d_retained": -0.0041937895396855634,
+      "d_ret_lo": -0.24642198408188812,
+      "d_ret_hi": 0.22919224014163386,
+      "d_auc": -0.002472683534774593,
+      "d_auc_lo": -0.06525710132233603,
+      "d_auc_hi": 0.060468201259120974,
+      "significant": false,
+      "p_gt0": 0.4855
+    },
+    {
+      "dataset": "ffpp",
+      "condition": "JPEG q10",
+      "group": "seen",
+      "n_videos": 200,
+      "base_retained": 0.7063252811461165,
+      "aug_retained": 0.7938092578352623,
+      "d_retained": 0.08748397668914587,
+      "d_ret_lo": -0.026262508962708393,
+      "d_ret_hi": 0.20584904926580572,
+      "d_auc": 0.0405191583135696,
+      "d_auc_lo": -0.012222266244021231,
+      "d_auc_hi": 0.09261207778840434,
+      "significant": false,
+      "p_gt0": 0.927
+    },
+    {
+      "dataset": "ffpp",
+      "condition": "Blur s3",
+      "group": "seen",
+      "n_videos": 200,
+      "base_retained": 0.7800134666112369,
+      "aug_retained": 0.6382753717091583,
+      "d_retained": -0.14173809490207862,
+      "d_ret_lo": -0.2555564492041763,
+      "d_ret_hi": -0.031822799969008615,
+      "d_auc": -0.04735615796272165,
+      "d_auc_lo": -0.09537751338573708,
+      "d_auc_hi": -0.0027825841346153907,
+      "significant": true,
+      "p_gt0": 0.0065
+    },
+    {
+      "dataset": "ffpp",
+      "condition": "Downscale 1/4",
+      "group": "seen",
+      "n_videos": 200,
+      "base_retained": 0.9115514322758129,
+      "aug_retained": 0.7710735469819673,
+      "d_retained": -0.14047788529384558,
+      "d_ret_lo": -0.2488725204283131,
+      "d_ret_hi": -0.04677381440888585,
+      "d_auc": -0.04553940842358898,
+      "d_auc_lo": -0.08847520206054618,
+      "d_auc_hi": -0.0038834798562607533,
+      "significant": true,
+      "p_gt0": 0.0025
+    },
+    {
+      "dataset": "ffpp",
+      "condition": "WebP q10",
+      "group": "UNSEEN",
+      "n_videos": 200,
+      "base_retained": 0.7738883822873522,
+      "aug_retained": 0.7821968869753091,
+      "d_retained": 0.008308504687957019,
+      "d_ret_lo": -0.07661957485042865,
+      "d_ret_hi": 0.09332681504255734,
+      "d_auc": 0.010406658374773453,
+      "d_auc_lo": -0.03155703687725086,
+      "d_auc_hi": 0.05299181212766962,
+      "significant": false,
+      "p_gt0": 0.574
+    },
+    {
+      "dataset": "ffpp",
+      "condition": "Noise s25",
+      "group": "UNSEEN",
+      "n_videos": 200,
+      "base_retained": -0.12569094178470083,
+      "aug_retained": -0.045540869287160946,
+      "d_retained": 0.0801500724975399,
+      "d_ret_lo": -0.2295972698851241,
+      "d_ret_hi": 0.3997169449107499,
+      "d_auc": 0.029922309337131272,
+      "d_auc_lo": -0.08762957951444182,
+      "d_auc_hi": 0.1475464935974388,
+      "significant": false,
+      "p_gt0": 0.6945
+    },
+    {
+      "dataset": "ffpp",
+      "condition": "H.264 crf40",
+      "group": "UNSEEN",
+      "n_videos": 200,
+      "base_retained": 0.7173599314932113,
+      "aug_retained": 0.7363388170969631,
+      "d_retained": 0.018978885603751702,
+      "d_ret_lo": -0.09198357434072084,
+      "d_ret_hi": 0.1337011146087959,
+      "d_auc": 0.013997648003388567,
+      "d_auc_lo": -0.0330039609906341,
+      "d_auc_hi": 0.06490498737373736,
+      "significant": false,
+      "p_gt0": 0.628
+    },
+    {
+      "dataset": "dfdc",
+      "condition": "JPEG q10",
+      "group": "seen",
+      "n_videos": 58,
+      "base_retained": 0.7259261251898177,
+      "aug_retained": 0.844774843371209,
+      "d_retained": 0.11884871818139148,
+      "d_ret_lo": -0.4773735891360315,
+      "d_ret_hi": 0.7134248392439314,
+      "d_auc": 0.029185501306095603,
+      "d_auc_lo": -0.1260737628384686,
+      "d_auc_hi": 0.19929347826086946,
+      "significant": false,
+      "p_gt0": 0.6745
+    },
+    {
+      "dataset": "dfdc",
+      "condition": "Blur s3",
+      "group": "seen",
+      "n_videos": 58,
+      "base_retained": 0.7544642660873035,
+      "aug_retained": 0.43932515022103064,
+      "d_retained": -0.31513911586627297,
+      "d_ret_lo": -1.062819739746861,
+      "d_ret_hi": 0.25242392967552757,
+      "d_auc": -0.08764890691261516,
+      "d_auc_lo": -0.23791563046882194,
+      "d_auc_hi": 0.04989757266542984,
+      "significant": false,
+      "p_gt0": 0.1485
+    },
+    {
+      "dataset": "dfdc",
+      "condition": "Downscale 1/4",
+      "group": "seen",
+      "n_videos": 58,
+      "base_retained": 0.7621764396042928,
+      "aug_retained": 0.6443792142078678,
+      "d_retained": -0.11779722539642504,
+      "d_ret_lo": -0.7121248938642594,
+      "d_ret_hi": 0.3644187512716734,
+      "d_auc": -0.03396985711214719,
+      "d_auc_lo": -0.16280988288679052,
+      "d_auc_hi": 0.09583333333333333,
+      "significant": false,
+      "p_gt0": 0.321
+    },
+    {
+      "dataset": "dfdc",
+      "condition": "WebP q10",
+      "group": "UNSEEN",
+      "n_videos": 58,
+      "base_retained": 0.3384599936825,
+      "aug_retained": 0.6324476214374213,
+      "d_retained": 0.29398762775492115,
+      "d_ret_lo": -0.30444257513376427,
+      "d_ret_hi": 1.0931971643064122,
+      "d_auc": 0.07016737803955805,
+      "d_auc_lo": -0.09504534313725498,
+      "d_auc_hi": 0.23960445290537782,
+      "significant": false,
+      "p_gt0": 0.813
+    },
+    {
+      "dataset": "dfdc",
+      "condition": "Noise s25",
+      "group": "UNSEEN",
+      "n_videos": 58,
+      "base_retained": -0.2797462620612519,
+      "aug_retained": 0.08444332764785056,
+      "d_retained": 0.3641895897091025,
+      "d_ret_lo": -0.3339638888105885,
+      "d_ret_hi": 1.1841531228469249,
+      "d_auc": 0.10075458491439329,
+      "d_auc_lo": -0.09149003623188413,
+      "d_auc_hi": 0.2857509157509156,
+      "significant": false,
+      "p_gt0": 0.8415
+    },
+    {
+      "dataset": "dfdc",
+      "condition": "H.264 crf40",
+      "group": "UNSEEN",
+      "n_videos": 58,
+      "base_retained": 0.6026265634338446,
+      "aug_retained": 0.4084173130850403,
+      "d_retained": -0.1942092503488043,
+      "d_ret_lo": -0.5962932589392691,
+      "d_ret_hi": 0.24017884383935345,
+      "d_auc": -0.06094838304227087,
+      "d_auc_lo": -0.17365435652917097,
+      "d_auc_hi": 0.04376815817790517,
+      "significant": false,
+      "p_gt0": 0.175
+    }
+  ],
+  "n_boot": 2000,
+  "conditions": {
+    "clean": "reference",
+    "JPEG q10": "seen",
+    "Blur s3": "seen",
+    "Downscale 1/4": "seen",
+    "WebP q10": "UNSEEN",
+    "Noise s25": "UNSEEN",
+    "H.264 crf40": "UNSEEN"
+  }
+}

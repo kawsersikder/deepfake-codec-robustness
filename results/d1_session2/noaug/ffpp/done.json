@@ -1,0 +1,92 @@
+{
+  "status": "complete",
+  "arm": "noaug",
+  "fold": "ffpp",
+  "ops": [
+    "identity"
+  ],
+  "training": {
+    "status": "complete",
+    "best_epoch": 3,
+    "source_val_auc": 0.9834813565282314,
+    "full_test_auc": 0.957114,
+    "train_hours": 0.7669006224473317,
+    "wall_seconds": 2859.078088760376
+  },
+  "auc": {
+    "clean": 0.956436,
+    "resize224": 0.9550200000000001,
+    "jpeg50": 0.947932,
+    "jpeg20": 0.9253419999999999,
+    "h264_crf23": 0.9455720000000002,
+    "h264_crf40": 0.864752
+  },
+  "seconds": 3442.7848348617554,
+  "train_seconds": 2859.078088760376,
+  "store_seconds": 3.5762786865234375e-06,
+  "eval_seconds": 583.7066900730133,
+  "projected": {
+    "train_img_s": 35.9888208067635,
+    "train_raw_h": 0.7603901822402798,
+    "train_h": 0.9140155306692512,
+    "eval_raw_h": 0.18306727392185065,
+    "eval_h": 0.1913612768249025,
+    "store_h": 0.0,
+    "hours": 1.1353768074941537
+  },
+  "finished_at_hours": 2.5322105340825187,
+  "signature": {
+    "arm": "noaug",
+    "held": "ffpp",
+    "ops": [
+      "identity"
+    ],
+    "aug": {},
+    "evaluation": {
+      "smoke": false,
+      "smoke_videos": 12,
+      "eval_frames_per_video": 8,
+      "jpeg": [
+        50,
+        20
+      ],
+      "jpeg_subsampling": 2,
+      "h264_crf": [
+        23,
+        40
+      ],
+      "h264_videos_per_class": 500,
+      "h264_seed": 42,
+      "h264_size": 224,
+      "h264_preset": "medium",
+      "h264_fps": 25
+    },
+    "training": {
+      "seed": 42,
+      "data_seed": 42,
+      "smoke": false,
+      "smoke_videos": 12,
+      "train_per_source": 9000,
+      "eval_frames_per_video": 8,
+      "probe_C": [
+        0.0001,
+        0.001,
+        0.01,
+        0.1,
+        1.0
+      ],
+      "lora_rank": 16,
+      "lora_alpha": 32,
+      "lora_dropout": 0.05,
+      "lora_targets": "qv",
+      "epochs": 4,
+      "batch_size": 32,
+      "lr_lora": 0.0002,
+      "lr_head": 0.0002,
+      "weight_decay": 0.0001,
+      "warmup_frac": 0.05,
+      "grad_clip": 1.0,
+      "amp": true
+    }
+  }
+}

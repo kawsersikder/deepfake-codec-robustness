@@ -1,0 +1,14 @@
+{
+  "clean": "INCONCLUSIVE (seed 43 decides)",
+  "resize224": "INCONCLUSIVE (seed 43 decides)",
+  "jpeg50": "INCONCLUSIVE (seed 43 decides)",
+  "jpeg20": "INCONCLUSIVE (seed 43 decides)",
+  "h264_crf23": "INCONCLUSIVE (seed 43 decides)",
+  "h264_crf40": "INCONCLUSIVE (seed 43 decides)",
+  "clean (Celeb-DF identity clusters)": "INCONCLUSIVE (seed 43 decides)",
+  "resize224 (Celeb-DF identity clusters)": "INCONCLUSIVE (seed 43 decides)",
+  "jpeg50 (Celeb-DF identity clusters)": "INCONCLUSIVE (seed 43 decides)",
+  "jpeg20 (Celeb-DF identity clusters)": "INCONCLUSIVE (seed 43 decides)",
+  "h264_crf23 (Celeb-DF identity clusters)": "INCONCLUSIVE (seed 43 decides)",
+  "h264_crf40 (Celeb-DF identity clusters)": "INCONCLUSIVE (seed 43 decides)"
+}

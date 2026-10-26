@@ -1,0 +1,15 @@
+{
+  "smoke": false,
+  "arms": [
+    "plain",
+    "noaug",
+    "invmask",
+    "realjpeg"
+  ],
+  "folds": [
+    "dfdc",
+    "ffpp",
+    "celebdf"
+  ],
+  "started_at_hours": 0.1571483286221822
+}

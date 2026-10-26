@@ -1,0 +1,15 @@
+{
+  "bootstrap": 1000,
+  "seed": 42,
+  "clusters": "(dataset, group_id)",
+  "delta": "AUC(arm_a) - AUC(arm_b) on identical videos; 95% percentile interval",
+  "endpoints": {
+    "qmask - randmask @ jpeg20": "primary",
+    "qmask - control @ jpeg20": "primary",
+    "qmask - randmask @ h264_crf40": "secondary",
+    "qmask - control @ h264_crf40": "secondary"
+  },
+  "h264_note": "h264_* and clean_h264subset use the same fixed video subset (h264_subset.csv per fold)",
+  "mean_note": "mean_over_folds and paired_deltas_mean are point estimates; check the folds column",
+  "truncated_note": "status truncated = training stopped early by the time guard; see truncated_arm, status_a/status_b and truncated_folds before reading a delta"
+}

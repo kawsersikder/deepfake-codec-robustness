@@ -1,0 +1,61 @@
+{
+  "status": "complete",
+  "arm": "plain",
+  "fold": "ffpp",
+  "ops": [],
+  "training": {
+    "status": "complete",
+    "source": "Phase 13 run 2 (no training)",
+    "checkpoint": "/kaggle/input/datasets/kawsersikder/phase13-eva02-lora/lora_ffpp_best.pt",
+    "checkpoint_sha256": "ee1dcaed6af7b12e190813489ce13e4ac9ecfbf89f0843d611e0a9d1b5c8eac1"
+  },
+  "strength": {},
+  "auc": {
+    "clean": 0.957328,
+    "resize224": 0.95644,
+    "jpeg50": 0.949004,
+    "jpeg20": 0.9273279999999999,
+    "h264_crf23": 0.9466839999999999,
+    "h264_crf40": 0.8667520000000001
+  },
+  "seconds": 795.0876660346985,
+  "train_seconds": 0.0,
+  "store_seconds": 222.55388402938843,
+  "eval_seconds": 572.5337595939636,
+  "projected": {
+    "train_img_s": null,
+    "train_raw_h": 0.0,
+    "train_h": 0.0,
+    "eval_raw_h": 0.7923851136614879,
+    "eval_h": 0.19025760419440468,
+    "store_h": 0.07666666666666666,
+    "hours": 0.2969242708610713
+  },
+  "finished_at_hours": 1.2987251274453269,
+  "signature": {
+    "arm": "plain",
+    "held": "ffpp",
+    "ops": [],
+    "aug": {},
+    "evaluation": {
+      "smoke": false,
+      "smoke_videos": 12,
+      "eval_frames_per_video": 8,
+      "jpeg": [
+        50,
+        20
+      ],
+      "jpeg_subsampling": 2,
+      "h264_crf": [
+        23,
+        40
+      ],
+      "h264_videos_per_class": 500,
+      "h264_seed": 42,
+      "h264_size": 224,
+      "h264_preset": "medium",
+      "h264_fps": 25
+    },
+    "checkpoint_sha256": "ee1dcaed6af7b12e190813489ce13e4ac9ecfbf89f0843d611e0a9d1b5c8eac1"
+  }
+}

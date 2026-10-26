@@ -1,0 +1,10 @@
+dataset,split,frames,videos
+celebdf,test,9986,980
+celebdf,train,45584,4568
+celebdf,val,9811,980
+dfdc,test,19329,58
+dfdc,train,87283,265
+dfdc,val,18035,58
+ffpp,test,6000,300
+ffpp,train,27949,1400
+ffpp,val,6000,300

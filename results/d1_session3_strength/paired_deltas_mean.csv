@@ -1,0 +1,25 @@
+comparison,condition,mean_delta,folds,folds_ci_above_0,folds_ci_below_0
+randmask_lowE - plain,clean,-0.007676325568018376,3,1,0
+qmask_highE - plain,clean,-0.022515142939315485,3,1,1
+invmask_highE - plain,clean,-0.01359222778257115,3,1,1
+qmask_highE - invmask_highE,clean,-0.008922915156744335,3,1,2
+randmask_lowE - plain,resize224,-0.007655299396031046,3,1,0
+qmask_highE - plain,resize224,-0.023278986482599923,3,1,1
+invmask_highE - plain,resize224,-0.014398696577509326,3,1,2
+qmask_highE - invmask_highE,resize224,-0.0088802899050906,3,1,2
+randmask_lowE - plain,jpeg50,-0.003541654299683598,3,1,0
+qmask_highE - plain,jpeg50,-0.02267702847282138,3,1,1
+invmask_highE - plain,jpeg50,-0.010066061547310897,3,1,1
+qmask_highE - invmask_highE,jpeg50,-0.012610966925510484,3,1,2
+randmask_lowE - plain,jpeg20,0.0035205383951682303,3,2,0
+qmask_highE - plain,jpeg20,-0.009550678170836954,3,1,1
+invmask_highE - plain,jpeg20,0.00540120563704342,3,1,0
+qmask_highE - invmask_highE,jpeg20,-0.014951883807880373,3,0,2
+randmask_lowE - plain,h264_crf23,-0.007992284153005458,3,1,0
+qmask_highE - plain,h264_crf23,-0.019176684498130554,3,1,1
+invmask_highE - plain,h264_crf23,-0.00861041012366981,3,1,0
+qmask_highE - invmask_highE,h264_crf23,-0.010566274374460746,3,1,2
+randmask_lowE - plain,h264_crf40,0.0006695530629853655,3,2,0
+qmask_highE - plain,h264_crf40,0.006802035087719334,3,1,0
+invmask_highE - plain,h264_crf40,0.016638045441472554,3,2,0
+qmask_highE - invmask_highE,h264_crf40,-0.009836010353753219,3,0,1

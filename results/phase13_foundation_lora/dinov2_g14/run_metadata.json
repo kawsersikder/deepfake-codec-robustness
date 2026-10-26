@@ -1,0 +1,298 @@
+{
+  "backbone": "dinov2_g14",
+  "timm_id": "vit_giant_patch14_dinov2.lvd142m",
+  "note": "DINOv2 ViT-g/14, self-distillation on LVD-142M, 1.1B params; position embeddings resampled from 518 to 224; frozen weights stored in fp16",
+  "torch": "2.10.0+cu128",
+  "timm": "1.0.26",
+  "gpus": [
+    "Tesla T4",
+    "Tesla T4"
+  ],
+  "wall_hours": 8.009205488761266,
+  "split_origin": "original algorithm replay; assumes unchanged dataset snapshot",
+  "config": {
+    "backbone": "dinov2_g14",
+    "smoke": false,
+    "seed": 42,
+    "device": "cuda:0",
+    "amp": true,
+    "multi_gpu": true,
+    "img_size": 224,
+    "train_per_source": 9000,
+    "smoke_videos": 12,
+    "eval_frames_per_video": 8,
+    "probe_C": [
+      0.0001,
+      0.001,
+      0.01,
+      0.1,
+      1.0
+    ],
+    "lora_rank": 16,
+    "lora_alpha": 32,
+    "lora_dropout": 0.05,
+    "lora_targets": "qv",
+    "epochs": 4,
+    "batch_size": 32,
+    "eval_batch_size": 64,
+    "workers": 4,
+    "lr_lora": 0.0002,
+    "lr_head": 0.0002,
+    "weight_decay": 0.0001,
+    "warmup_frac": 0.05,
+    "grad_clip": 1.0,
+    "bootstrap": 1000,
+    "time_limit_h": 11.0,
+    "log_every": 100,
+    "output_dir": "/kaggle/working/phase13_dinov2_g14"
+  },
+  "preflight": {
+    "dim": 1536,
+    "audit": {
+      "total_params": 1138703361,
+      "lora_params": 3932160,
+      "head_params": 1537,
+      "trainable_params": 3933697,
+      "trainable_pct": 0.3454540607086168
+    },
+    "bench": {
+      "train_img_s": 17.358796436407168,
+      "eval_img_s": 34.27409954910742
+    },
+    "grad_ckpt": false,
+    "micro_batch": 32,
+    "peak_gib": 11.345019340515137,
+    "normalisation": {
+      "mean": [
+        0.485,
+        0.456,
+        0.406
+      ],
+      "std": [
+        0.229,
+        0.224,
+        0.225
+      ]
+    },
+    "pooling": "token",
+    "plan": [
+      {
+        "step": "feature bank (frozen probe)",
+        "frames": 82860,
+        "hours": 0.7722789807721143
+      },
+      {
+        "step": "LoRA, dfdc held out",
+        "frames": 18000,
+        "hours": 1.7944674698825303
+      },
+      {
+        "step": "LoRA, ffpp held out",
+        "frames": 18000,
+        "hours": 1.8249354880836413
+      },
+      {
+        "step": "LoRA, celebdf held out",
+        "frames": 18000,
+        "hours": 1.894884242014304
+      }
+    ]
+  },
+  "lora": {
+    "dfdc": {
+      "status": "complete",
+      "signature": {
+        "backbone": "dinov2_g14",
+        "seed": 42,
+        "smoke": false,
+        "train_per_source": 9000,
+        "eval_frames_per_video": 8,
+        "lora_rank": 16,
+        "lora_alpha": 32,
+        "lora_dropout": 0.05,
+        "lora_targets": "qv",
+        "epochs": 4,
+        "batch_size": 32,
+        "lr_lora": 0.0002,
+        "lr_head": 0.0002,
+        "weight_decay": 0.0001
+      },
+      "held_out": "dfdc",
+      "best_epoch": 4,
+      "val_auc": 0.9967495004620004,
+      "test_auc": 0.6816220880069026,
+      "history": [
+        {
+          "epoch": 0,
+          "train_loss": NaN,
+          "val_auc": 0.9664878623816124,
+          "sec": 0.0
+        },
+        {
+          "epoch": 1,
+          "train_loss": 0.15643902353308944,
+          "val_auc": 0.9930241308616308,
+          "sec": 1499.6
+        },
+        {
+          "epoch": 2,
+          "train_loss": 0.0919094858669346,
+          "val_auc": 0.9963404928967429,
+          "sec": 1470.5
+        },
+        {
+          "epoch": 3,
+          "train_loss": 0.04716656953989183,
+          "val_auc": 0.9965612388831139,
+          "sec": 1465.5
+        },
+        {
+          "epoch": 4,
+          "train_loss": 0.02420056614808028,
+          "val_auc": 0.9967495004620004,
+          "sec": 1459.8
+        }
+      ],
+      "audit": {
+        "total_params": 1138703361,
+        "lora_params": 3932160,
+        "head_params": 1537,
+        "trainable_params": 3933697,
+        "trainable_pct": 0.3454540607086168
+      },
+      "grad_ckpt": false,
+      "micro_batch": 32,
+      "train_hours": 1.660344226492776
+    },
+    "ffpp": {
+      "status": "complete",
+      "signature": {
+        "backbone": "dinov2_g14",
+        "seed": 42,
+        "smoke": false,
+        "train_per_source": 9000,
+        "eval_frames_per_video": 8,
+        "lora_rank": 16,
+        "lora_alpha": 32,
+        "lora_dropout": 0.05,
+        "lora_targets": "qv",
+        "epochs": 4,
+        "batch_size": 32,
+        "lr_lora": 0.0002,
+        "lr_head": 0.0002,
+        "weight_decay": 0.0001
+      },
+      "held_out": "ffpp",
+      "best_epoch": 4,
+      "val_auc": 0.9632559180550252,
+      "test_auc": 0.9664079999999999,
+      "history": [
+        {
+          "epoch": 0,
+          "train_loss": NaN,
+          "val_auc": 0.8994207334051084,
+          "sec": 0.0
+        },
+        {
+          "epoch": 1,
+          "train_loss": 0.19794817708823764,
+          "val_auc": 0.9520470111987969,
+          "sec": 1461.9
+        },
+        {
+          "epoch": 2,
+          "train_loss": 0.11958508194637364,
+          "val_auc": 0.9531745460874925,
+          "sec": 1427.5
+        },
+        {
+          "epoch": 3,
+          "train_loss": 0.05537797735976652,
+          "val_auc": 0.9618866192526907,
+          "sec": 1421.7
+        },
+        {
+          "epoch": 4,
+          "train_loss": 0.02977620907757784,
+          "val_auc": 0.9632559180550252,
+          "sec": 1419.3
+        }
+      ],
+      "audit": {
+        "total_params": 1138703361,
+        "lora_params": 3932160,
+        "head_params": 1537,
+        "trainable_params": 3933697,
+        "trainable_pct": 0.3454540607086168
+      },
+      "grad_ckpt": false,
+      "micro_batch": 32,
+      "train_hours": 1.7085822588867612
+    },
+    "celebdf": {
+      "status": "complete",
+      "signature": {
+        "backbone": "dinov2_g14",
+        "seed": 42,
+        "smoke": false,
+        "train_per_source": 9000,
+        "eval_frames_per_video": 8,
+        "lora_rank": 16,
+        "lora_alpha": 32,
+        "lora_dropout": 0.05,
+        "lora_targets": "qv",
+        "epochs": 4,
+        "batch_size": 32,
+        "lr_lora": 0.0002,
+        "lr_head": 0.0002,
+        "weight_decay": 0.0001
+      },
+      "held_out": "celebdf",
+      "best_epoch": 4,
+      "val_auc": 0.9671877551020408,
+      "test_auc": 0.8042906234521714,
+      "history": [
+        {
+          "epoch": 0,
+          "train_loss": NaN,
+          "val_auc": 0.9243514739229025,
+          "sec": 0.0
+        },
+        {
+          "epoch": 1,
+          "train_loss": 0.0888006278805458,
+          "val_auc": 0.9602748299319728,
+          "sec": 1325.8
+        },
+        {
+          "epoch": 2,
+          "train_loss": 0.04665541889841355,
+          "val_auc": 0.9633197278911565,
+          "sec": 1300.9
+        },
+        {
+          "epoch": 3,
+          "train_loss": 0.01980534651919312,
+          "val_auc": 0.9658761904761906,
+          "sec": 1295.8
+        },
+        {
+          "epoch": 4,
+          "train_loss": 0.00938061049530388,
+          "val_auc": 0.9671877551020408,
+          "sec": 1292.6
+        }
+      ],
+      "audit": {
+        "total_params": 1138703361,
+        "lora_params": 3932160,
+        "head_params": 1537,
+        "trainable_params": 3933697,
+        "trainable_pct": 0.3454540607086168
+      },
+      "grad_ckpt": false,
+      "micro_batch": 32,
+      "train_hours": 1.789300595853064
+    }
+  }
+}
